@@ -12,7 +12,7 @@ macOS 利用終端機（terminal），就可以透過視窗輸入指令操作電
 | cd   | 打開資料夾 |cd wifi| 
 | touch| 創建檔案 |touch afu.js| 
 | mkdir| 新建資料夾 |mkdir wifi  | 
-| rmd  | 刪除檔案 |rmdir wifi  | 
+| rm  | 刪除檔案 |rmdir wifi  | 
 | rmdir| 刪除資料夾 |rmdir wifi  | 
 | cp   | 複製檔案 |cp afu.js afu_2.js | 
 | cp   | 複製資料夾 |cp -r afu.js afu_2.js | 
