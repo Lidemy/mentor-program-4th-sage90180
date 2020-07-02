@@ -9,8 +9,8 @@ rl.on('line', (line) => {
   lines.push(line);
 });
 
-function solve(str) {
-  const n = str[0];
+function solve(num) {
+  const n = num[0];
   for (let i = 1; i <= n; i += 1) {
     console.log('*'.repeat(i));
   }
