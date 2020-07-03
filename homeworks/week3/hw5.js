@@ -1,3 +1,4 @@
+/* eslint-disable no-param-reassign */
 const readline = require('readline');
 
 const lines = [];
@@ -11,15 +12,19 @@ rl.on('line', (line) => {
 
 function compare(a, b, j) {
   if (a === b) return 'DRAW';
-  if (Number(j) === 1) {
-    // eslint-disable-next-line no-undef
-    return BigInt(a) > BigInt(b) ? 'A' : 'B';
-  }
   if (Number(j) === -1) {
-    // eslint-disable-next-line no-undef
-    return BigInt(a) > BigInt(b) ? 'B' : 'A';
+    const t = a;
+    a = b;
+    b = t;
   }
-  return false;
+
+  const strA = a.toString();
+  const strB = b.toString();
+
+  if (strA.length !== strB.length) {
+    return strA.length > strB.length ? 'A' : 'B';
+  }
+  return a > b ? 'A' : 'B';
 }
 
 function solve(line) {
