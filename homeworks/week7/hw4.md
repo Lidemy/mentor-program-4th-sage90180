@@ -5,13 +5,13 @@ JavaScript 與 HTML 之間橋樑，透過 DOM 把文件轉成物件讓文件產�
 * 捕獲：事件傳遞機制中，由上而下向目標逐層傳遞，觸發各節點的事件監聽。
 * 冒泡：事件傳遞機制中，由目標向上外逐層傳遞，觸發各元素的事件監聽。
 ## 什麼是 event delegation，為什麼我們需要它？
-事件代理，透過冒泡機制，可以去監聽物件底下的節點，避免過多的監聽事件，浪費資源。
+事件代理，透過冒泡機制，可以去監聽物件底下的節點，避免過多的監聽事件浪費資源。
 
-## event.preventDefault() 跟 event.stopPropagation() 差在哪裡，可以舉個範例嗎？
-#### event.preventDefault() 
+## event.preventDefault( ) 跟 event.stopPropagation( ) 差在哪裡，可以舉個範例嗎？
+#### event.preventDefault( ) 
 * 取消事件的預設行為。
-* 與事件傳遞無關，以超連結為例：`<a>` 加上 preventDefault() 後，就無法連結到預設網址。
+* 與事件傳遞無關，以超連結為例：`<a>` 加上 preventDefault( ) 後，就無法連結到預設網址。
 
-#### event.stopPropagation() 
+#### event.stopPropagation( ) 
 * 阻止事件傳遞。
-* 事件是由上往下傳遞，如果在目標元素加上 stopPropagation()，事件就會在找到目標後終止，沒有冒泡階段。
+* 事件是由上往下傳遞，如果在目標元素加上 stopPropagation( )，事件就會在找到目標後終止，沒有冒泡階段。
