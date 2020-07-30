@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>To-Do List</title>
+    <link rel="stylesheet" href="css/todo.css"/>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.0/css/all.css" integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h" crossorigin="anonymous"/>
+  </head>
+  <body>
+    <div class="todolist">
+      <header>
+        <h2>To-Do List</h2>
+      </header>
+      <div class="main">
+        <div class="top">
+          <input class="dateinput" type="date"/>
+          <input class="newtodo" placeholder="你要做什麼事..."/><i class="far fa-calendar-plus"></i>
+        </div>
+        <div class="todos">
+          <div class="todo_info" date-num="1">
+            <div class="edit_check fas fa-check-circle"></div>
+            <input class="check" type="checkbox" checked="checked"/>
+            <div class="date">2020-06-12</div>
+            <input class="todo done" placeholder="開始上課囉" readonly="readonly"/>
+            <div class="btn_box"> <i class="far fa-edit displayNone"></i><i class="far fa-trash-alt"></i></div>
+          </div>
+          <div class="todo_info"> 
+            <div class="edit_check fas fa-check-circle"></div>
+            <input class="check" type="checkbox"/>
+            <div class="date">2020-07-29</div>
+            <input class="todo" placeholder="吃西瓜" readonly="readonly"/>
+            <div class="btn_box"> <i class="far fa-edit"></i><i class="far fa-trash-alt"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="./js/todo.js"></script>
+  </body>
+</html>

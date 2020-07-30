@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Form</title>
+    <link rel="stylesheet" href="https://necolas.github.io/normalize.css/8.0.1/normalize.css"/>
+    <link rel="stylesheet" href="./css/style.css"/>
+  </head>
+  <body>
+    <div class="form_box"> 
+      <h1>新拖延運動報名表單</h1>
+      <p>活動日期：2020/12/10 ~ 2020/12/11</p>
+      <p>活動地點：台北市大安區新生南路二段1號</p>
+      <form class="form_main">
+        <label class="form_title necessary">暱稱
+          <input type="text" name="name"/>
+          <div class="warning">請輸入暱稱</div>
+        </label>
+        <label class="form_title necessary">電子信箱
+          <input type="email" name="email"/>
+          <div class="warning">請輸入電子郵件</div>
+        </label>
+        <label class="form_title necessary">手機號碼
+          <input type="number" name="phone"/>
+          <div class="warning">請輸入手機號碼</div>
+        </label>
+        <label class="form_title necessary">報名類型<br/>
+          <input class="apply" id="opt_1" type="radio" name="type" value="躺在床上用想像力實作"/>
+          <label class="apply" for="opt_1">躺在床上用想像力實作</label><br/>
+          <input class="apply" id="opt_2" type="radio" name="type" value="趴在地上滑手機找現成的"/>
+          <label class="apply" for="opt_2">趴在地上滑手機找現成的</label>
+          <div class="warning opt">請選擇</div>
+        </label>
+        <label class="form_title necessary">怎麼知道這個活動的？
+          <input type="text" name="howKnow"/>
+          <div class="warning">請輸入資訊</div>
+        </label>
+        <label class="form_title">其它</label>
+        <textarea rows="4" placeholder="對於活動的一些建議" name="other"></textarea>
+        <button type="submit">送 出</button>
+        <p class="ps">請勿透過表單送出您的密碼。</p>
+      </form>
+    </div>
+    <script src="./js/index.js"></script>
+  </body>
+</html>

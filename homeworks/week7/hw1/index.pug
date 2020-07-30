@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title Form
+        link(rel="stylesheet", href="https://necolas.github.io/normalize.css/8.0.1/normalize.css")
+        link(rel="stylesheet", href="./css/style.css")
+    body
+        .form_box 
+            h1 新拖延運動報名表單
+            p 活動日期：2020/12/10 ~ 2020/12/11
+            p 活動地點：台北市大安區新生南路二段1號
+            form.form_main
+                label.form_title.necessary 暱稱
+                    input(type="text" name="name")
+                    .warning 請輸入暱稱
+                label.form_title.necessary 電子信箱
+                    input(type="email" name="email")
+                    .warning 請輸入電子郵件
+                label.form_title.necessary 手機號碼
+                    input(type="number" name="phone")
+                    .warning 請輸入手機號碼
+                label.form_title.necessary 報名類型
+                    br
+                    input.apply(id="opt_1" type="radio" name="type" value="躺在床上用想像力實作" )
+                    label.apply(for="opt_1") 躺在床上用想像力實作
+                    br
+                    input.apply(id="opt_2" type="radio" name="type" value="趴在地上滑手機找現成的")
+                    label.apply(for="opt_2") 趴在地上滑手機找現成的
+                    .warning.opt 請選擇
+                label.form_title.necessary 怎麼知道這個活動的？
+                    input(type="text" name="howKnow")
+                    .warning 請輸入資訊
+                label.form_title 其它
+                textarea(rows="4" placeholder="對於活動的一些建議" name="other")
+                button(type="submit") 送 出
+                p.ps 請勿透過表單送出您的密碼。
+        script(src="./js/index.js")
+                
+                
+            
+            
