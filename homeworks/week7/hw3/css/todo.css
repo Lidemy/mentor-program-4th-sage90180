@@ -1,0 +1,206 @@
+* {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+html, body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  background: #004D95;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column; }
+  html h4, body h4 {
+    color: white; }
+
+.todolist {
+  width: 500px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background: #FEFAE0;
+  -webkit-box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, 0.1); }
+  .todolist header {
+    padding: 0px;
+    text-align: center;
+    background: #FABE00;
+    color: #592D00;
+    border-bottom: solid 5px #592D00;
+    padding: 10px 5px;
+    font-size: 20px;
+    font-weight: 900; }
+    .todolist header h2 {
+      margin: 0px; }
+  .todolist .main {
+    padding: 15px; }
+    .todolist .main .top {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center;
+      -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+      justify-content: space-between;
+      background: rgba(240, 180, 0, 0.1);
+      padding: 10px 20px; }
+      .todolist .main .top input {
+        -webkit-box-shadow: 0px 0px 0px 0px rgba(240, 180, 0, 0.5) inset;
+        box-shadow: 0px 0px 0px 0px rgba(240, 180, 0, 0.5) inset; }
+      .todolist .main .top .dateinput {
+        position: relative;
+        height: 20;
+        width: 32%; }
+      .todolist .main .top .newtodo {
+        width: 50%;
+        height: 24px; }
+      .todolist .main .top i {
+        font-size: 20px;
+        cursor: pointer;
+        color: #592D00;
+        -webkit-transition: .2s;
+        -o-transition: .2s;
+        transition: .2s; }
+      .todolist .main .top i:hover {
+        -webkit-transform: scale(1.15);
+        -ms-transform: scale(1.15);
+        transform: scale(1.15); }
+    .todolist .main .todos {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-orient: vertical;
+      -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+      flex-direction: column;
+      padding: 10px 0px;
+      color: #333333;
+      position: relative; }
+      .todolist .main .todos .fa-kiss-beam {
+        font-size: 25px !important; }
+      .todolist .main .todos .todo_info {
+        width: 100%;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding: 5px 0px;
+        border-bottom: dashed 2px #ddd;
+        border-left: solid 8px #FEFAE0;
+        -webkit-transition: .2s;
+        -o-transition: .2s;
+        transition: .2s; }
+        .todolist .main .todos .todo_info * {
+          display: inline-block; }
+        .todolist .main .todos .todo_info .check {
+          width: 10px;
+          zoom: 2;
+          border: none; }
+        .todolist .main .todos .todo_info .date {
+          width: 140px;
+          font-weight: 900; }
+          .todolist .main .todos .todo_info .date .dateinput {
+            position: relative;
+            top: -2px; }
+        .todolist .main .todos .todo_info .todo {
+          width: 180px;
+          border: none;
+          background: #FEFAE0;
+          outline: none;
+          font-size: 15px;
+          font-weight: 500;
+          padding: 2px 5px;
+          border: solid 1px #FEFAE0;
+          -webkit-transition: .3s;
+          -o-transition: .3s;
+          transition: .3s; }
+          .todolist .main .todos .todo_info .todo::-webkit-input-placeholder {
+            font-weight: 500;
+            font-size: 15px;
+            color: #333333; }
+          .todolist .main .todos .todo_info .todo:-ms-input-placeholder {
+            font-weight: 500;
+            font-size: 15px;
+            color: #333333; }
+          .todolist .main .todos .todo_info .todo::-ms-input-placeholder {
+            font-weight: 500;
+            font-size: 15px;
+            color: #333333; }
+          .todolist .main .todos .todo_info .todo::placeholder {
+            font-weight: 500;
+            font-size: 15px;
+            color: #333333; }
+        .todolist .main .todos .todo_info .todo.done {
+          text-decoration: line-through;
+          opacity: 0.7; }
+        .todolist .main .todos .todo_info .btn_box {
+          width: 50px;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex;
+          -webkit-box-pack: justify;
+          -ms-flex-pack: justify;
+          justify-content: space-between;
+          position: relative;
+          right: 10px; }
+          .todolist .main .todos .todo_info .btn_box i {
+            cursor: pointer; }
+          .todolist .main .todos .todo_info .btn_box i:hover {
+            -webkit-transform: scale(1.1);
+            -ms-transform: scale(1.1);
+            transform: scale(1.1); }
+        .todolist .main .todos .todo_info .edit_check {
+          position: absolute;
+          font-size: 14px;
+          right: 75px;
+          color: #bbb;
+          display: none;
+          -webkit-transition: .3s;
+          -o-transition: .3s;
+          transition: .3s;
+          cursor: pointer;
+          font-size: 17px; }
+        .todolist .main .todos .todo_info .edit_check:hover {
+          color: green;
+          -webkit-transform: scale(1.1);
+          -ms-transform: scale(1.1);
+          transform: scale(1.1); }
+        .todolist .main .todos .todo_info .active.edit_check {
+          display: block; }
+      .todolist .main .todos .todo_info:hover {
+        font-weight: 900;
+        border-left: solid 8px #FABE00; }
+
+.displayNone {
+  visibility: hidden; }
+
+.todo.input_edit {
+  border: solid 1px #777 !important;
+  background: white !important;
+  border-radius: 3px;
+  height: 25px; }
+
+.main .todos .dateinput {
+  position: relative !important;
+  top: -1px !important; }

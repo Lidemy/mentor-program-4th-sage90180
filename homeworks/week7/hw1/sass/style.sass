@@ -1,0 +1,139 @@
+$color_dark: #f3bd6d
+
+html,body
+    padding: 40px 0px
+    background: #88BFC1
+    margin: 0px
+.form_box 
+    background: #FFF9DC
+    box-shadow: 0px 0px 15px rgba(27, 66, 68, .5)
+    max-width: 550px
+    border-top: solid 15px $color_dark
+    border-bottom: solid 15px $color_dark
+    position: relative
+    z-index: 999
+    text-align: center
+    color: #3B3938
+    margin: 0 auto
+    h1
+        margin: 30px 0px 15px 0px
+    p
+        margin: 5px 0px
+    &:after
+        background: #FFF9DC
+        position: absolute
+        content: ''
+        width: 80px
+        height: 10px
+        left: 50%
+        transform: translateX(-50%)
+        top: 0px
+    &:before
+        background: #FFF9DC
+        position: absolute
+        content: ''
+        width: 30px
+        height: 30px
+        border-radius: 50px
+        border: solid 15px $color_dark
+        left: 50%
+        transform: translateX(-50%)
+        top: -50px
+    .form_main
+        background: white
+        width: 75%
+        margin: 50px auto
+        border-radius: 10px
+        position: relative
+        padding: 10px 30px 30px 30px
+        text-align: left
+        input
+            border: none
+            outline: none
+            border-radius: 0px
+            border-bottom: solid 2px $color_dark
+            width: 200px
+            margin-top: 5px
+        input[type=text],input[type=email],input[type=number],
+            display: block
+        .form_title
+            margin: 20px 0px 5px 0px
+            display: block
+        input.apply
+            width: auto
+            margin: 5px
+        input.apply[type=radio]
+            appearance: none
+            padding: 0
+            width: 20px
+            height: 20px
+            border: 2px solid $color_dark
+            border-radius: 50%
+            cursor: pointer
+            transition: 0.5s
+            &:checked
+                background-color: $color_dark
+                border-color: $color_dark
+        label.apply
+            position: relative
+            top: -8px
+            cursor: pointer
+        .form_title.necessary:before
+            content: "＊"
+            color: #E35060
+        textarea
+            border: 2px solid $color_dark
+            width: 80%
+            border-radius: 5px
+            outline: none
+        ::placeholder
+            padding: 5px
+            color: #bbb
+    .form_main:before
+        content: '＊必填'
+        position: absolute
+        left: 30px
+        top: -23px
+        font-size: 15px
+        color: #E35060
+    button
+        display: block
+        margin: 20px 0px 0px 0px
+        border: none
+        color: white
+        padding: 5px 20px
+        letter-spacing: 2px
+        font-size: 18px
+        border-radius: 5px
+        background: $color_dark
+        cursor: pointer
+        transition: .3s
+        position: relative
+    button:hover
+        background: #d29f54
+    p.ps
+        font-size: 15px
+        color: #E35060
+        position: relative
+        top: 5px
+    .warning
+        color: #E35060
+        font-size: 14px
+        margin: 5px 0px
+        opacity: 0
+// 解決表單輸入後自動帶入顏色
+input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill
+  -webkit-box-shadow: 0 0 0 1000px #fff9f2 inset
+  -webkit-text-fill-color: #333
+
+input
+  &[type=text]:focus, &[type=password]:focus
+    -webkit-box-shadow: 0 0 0 1000px #fff9f2 inset
+
+textarea:focus
+  -webkit-box-shadow: 0 0 0 1000px #fff9f2 inset
+@media (max-width: 375px)
+    html,body
+        padding: 40px 5px
+
+

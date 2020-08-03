@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+html(lang="en")
+    head
+        meta(charset="UTF-8")
+        meta(name="viewport", content="width=device-width, initial-scale=1.0")
+        title To-Do List
+        link(rel="stylesheet", href="css/todo.css")
+        link(rel="stylesheet", href="https://use.fontawesome.com/releases/v5.6.0/css/all.css",integrity="sha384-aOkxzJ5uQz7WBObEZcHvV5JvRW3TUc2rNPA7pe3AwnsUohiw1Vj2Rgx2KSOkF5+h",crossorigin="anonymous")
+    body
+        .todolist
+            header
+                h2 To-Do List
+            .main
+                .top
+                    input(type="date").dateinput
+                    input.newtodo(placeholder="你要做什麼事...")
+                    i.far.fa-calendar-plus
+                .todos
+                    .todo_info(date-num='1')
+                        .edit_check.fas.fa-check-circle
+                        input.check(type="checkbox" checked)
+                        .date 2020-06-12
+                        input.todo.done(placeholder="開始上課囉" readonly) 
+                        .btn_box 
+                            i.far.fa-edit.displayNone
+                            i.far.fa-trash-alt
+                    .todo_info 
+                        .edit_check.fas.fa-check-circle
+                        input.check(type="checkbox")
+                        .date 2020-07-29
+                        input.todo(placeholder="吃西瓜" readonly) 
+                        .btn_box 
+                            i.far.fa-edit
+                            i.far.fa-trash-alt
+        script(src="./js/todo.js")

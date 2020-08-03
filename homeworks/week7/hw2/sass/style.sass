@@ -1,0 +1,357 @@
+a
+    text-decoration: none 
+body
+    font-family: MicrosoftJhengHei
+@mixin title($margin: 60px 0px 30px 0px,$font-size: 25px,$display: inline-block,$border-left: solid 14px #a3dea2,$letter-spacing: 1px,$padding-left: 10px)
+    margin: $margin
+    font-size: $font-size
+    display: $display
+    border-left: $border-left
+    letter-spacing: $letter-spacing
+    padding-left: $padding-left
+
+@mixin container($max-width: 1280px,$margin: 0px auto)
+    max-width: $max-width
+    margin: $margin
+
+.navbar
+    position: relative
+    box-shadow: -1.4px -1.4px 6px 0 #97a2a0
+    z-index: 999
+    .container
+        +container
+        height: 84px
+        display: flex
+        align-items: center
+        justify-content: space-between
+        padding: 0px 10px
+        .navbar_logo
+            font-family: Questrial
+            font-size: 30px
+            font-weight: 400
+            a
+                color: #489846
+        ul.navbar_btn
+            list-style: none
+            display: flex
+            li
+                text-align: center
+                transition: .2s
+                width: 120px
+                line-height: 44px
+                a
+                    color: #000
+                    display: block
+                    transition: .2s
+            li + li
+                margin-left: 20px
+            li.active, li:hover
+                background: #ff7286
+                border-radius: 8px
+                a
+                    color: white
+section.banner
+    position: relative
+    h1
+        position: absolute
+        margin: 0px
+        left: 50%
+        top: 50%
+        font-size: 50px
+        transform: translate(-50%, -50%)
+        color: white
+    img
+        width: 100%
+    &:before
+        content: ''
+        position: absolute
+        width: 100%
+        height: 100%
+        background: rgba(0, 0, 0, .5)
+section.introduction
+    text-align: center
+    position: relative
+    padding: 10px
+    h2
+        +title
+    p
+        font-size: 15px
+        line-height: 2em
+        letter-spacing: 1px
+    .btn_box
+        display: flex
+        justify-content: center
+        position: relative
+        top: 20px
+        margin: 20px 0px
+        .btn
+            width: 220px
+            height: 120px
+            border-radius: 10px
+            background: #a8e8e1
+            color: #3e613d
+            font-size: 25px
+            display: flex
+            justify-content: center
+            align-items: center
+            font-weight: 900
+            margin: 12px
+            cursor: pointer
+            transition: .3s
+        .btn_2
+            background: #f9f9b5
+        .btn:hover
+            transform: scale(1.1)
+section.menu
+    text-align: center
+    margin-top: 20px
+    h2.title
+        +title
+    .menu_box
+        font-size: 0px
+        div
+            position: relative
+            display: inline-block
+            width: 25%
+            margin: 0px
+            padding: 0px
+            color: red
+            cursor: pointer
+            img
+                width: 100%
+                transition: .5s
+            &:before
+                display: flex
+                align-items: center
+                justify-content: center
+                content: attr(data-item)
+                position: absolute
+                background: rgba(62, 97, 61, .7)
+                font-size: 30px
+                top: 20px
+                left: 20px
+                bottom: 20px
+                right: 20px
+                color: white
+                transition: .5s
+                opacity: 0
+        div:hover
+            &:before
+                opacity: 1
+section.feedback
+    text-align: center
+    .container
+        +container
+    h2.title
+        +title
+    .customers
+        display: flex
+        position: relative
+        top: 50px
+        .customer
+            box-shadow: 0px 0px 4px 3px #d8eaef
+            margin: 10px
+            padding: 10px
+            width: calc(100%/3)
+            border-radius: 5px
+            line-height: 1.5em
+            padding: 60px 20px 10px 20px
+            position: relative
+            font-size: 15px
+            img.customer_photo
+                position: absolute
+                top: -40px
+                left: 50%
+                transform: translateX(-50%)
+                width: 80px
+                border-radius: 100px
+                box-shadow: 0px 0px 4px 2px rgba(0,0,0,.3)
+                transition: .3s
+            p
+                letter-spacing: 1px
+                text-align: justify
+        
+        .customer:hover
+            img.customer_photo
+                top: -50px
+        .customer:before
+            content: attr(data-name)
+            position: absolute
+            top: 45px
+            font-size: 12px
+            left: 50%
+            transform: translateX(-50%)
+section.map
+    margin-top: 50px
+    text-align: center
+    h2.title
+        +title
+    .container
+        +container
+        iframe
+            width: 100%
+            height: 455px
+footer
+    margin-top: 50px
+    background:#e8efee
+    padding: 20px
+    text-align: left
+    .container
+        display: flex
+        justify-content: space-between
+        +container
+        .info_left
+            p:before
+                content: attr(data-title)
+        .info_right
+            text-align: right
+            h1
+                color: #489846
+                font-family: Questrial
+                font-size: 30px
+                font-weight: 400
+            a
+                color: black
+            a + a:before
+                content: " / "
+            a:hover
+                font-weight: 900
+.footer_bottom
+    background: #35564b
+    color: white
+    text-align: center
+    padding: 15px 10px
+        
+
+
+@media (max-width: 768px)
+    .navbar
+        .container
+            flex-direction: column
+            height: auto
+            padding: 0px 0px
+            justify-content: center
+            .navbar_logo
+                padding: 20px 0px
+            .navbar_btn
+                padding: 0px
+                margin: 0px
+                width: 100%
+                li
+                    flex: 1
+                    text-align: center
+                li + li
+                    margin-left: 0px !important
+                li.active, li:hover
+                    border-radius: 0px !important
+    section.banner
+        h1
+            font-size: 30px
+    section.introduction
+        padding: 10px 20px
+        p
+            text-align: justify
+        .btn_box
+            flex-direction: column
+            .btn 
+                margin: 12px auto
+    section.menu
+        .menu_box
+            div
+                width: 50%
+                &:before
+                    top: 10px
+                    left: 10px
+                    bottom: 10px
+                    right: 10px
+    section.feedback
+        .customers
+            flex-direction: column
+            .customer
+                width: 70%
+                margin: 0px auto
+            .customer + .customer
+                margin-top: 70px
+    footer
+        .container
+            flex-direction: column
+            .info_left
+                padding: 10px 20px
+                p
+                    line-height: 1.5em
+                p:before
+                    display: block
+            .info_right
+                text-align: center
+                
+// -------內頁----------內頁----------
+
+section.faq
+    text-align: center
+    h2.title
+        +title
+    .faq_content
+        text-align: left
+        max-width: 810px
+        margin: auto
+        padding: 0px 10px
+        .faq_card
+            border-bottom: solid 1px #70b282
+            padding-left: 60px
+            .card_header
+                display: flex
+                align-items: center
+                justify-content: space-between
+                position: relative
+                right: 10px
+                padding: 10px 0px
+                padding-left: 10px
+                cursor: pointer
+                h3
+                    font-size: 18px
+                    margin: 0px
+                    overflow: hidden
+                    white-space: nowrap
+                    text-overflow: ellipsis
+                .open_card_btn
+                    width: 25px
+                    height: 25px
+                    padding: 10px
+                    position: relative
+                    display: flex
+                    align-items: center
+                    justify-content: center
+                    transition: .5s
+                .open_card_btn:before 
+                    position: absolute
+                    display: block
+                    width: 25px
+                    height: 3px
+                    background: #70b282
+                    content: ' '
+                .open_card_btn.open:after
+                    position: absolute
+                    top: 21px
+                    display: block
+                    width: 25px
+                    height: 3px
+                    background: #70b282
+                    content: ' '
+                    transform: rotate(90deg)
+            .card_header:before
+                letter-spacing: 1px
+                position: absolute
+                font-family: Questrial
+                color: #70b282
+                content: 'Q' attr(data-no) ':'
+                font-size: 22px
+                left: -45px
+                
+            .card_body
+                display: none
+                p
+                    margin: 0px
+                    padding-bottom: 25px
+                    line-height: 25px
+            .card_body.display
+                display: block
