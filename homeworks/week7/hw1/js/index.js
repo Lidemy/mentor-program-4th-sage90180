@@ -1,30 +1,28 @@
-/* eslint-disable no-undef */
-const element = document.querySelector('.form_main');
-const input = document.querySelectorAll('input');
-const radio = document.querySelectorAll('input[type=radio]');
-element.addEventListener('submit', (e) => {
-  let setAlert = true;
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable no-alert */
+document.querySelector('form').addEventListener('submit', (e) => {
+  const inputs = document.querySelectorAll('.necessary input');
+  let getAlert = true;
   let radioValue = '';
-  // 確認 input 輸入
-  for (let i = 0; i < input.length; i += 1) {
-    if (input[i].value === '') {
-      input[i].nextElementSibling.style.opacity = '1';
-      setAlert = false;
+  for (const input of inputs) {
+    if (input.type === 'text') {
+      if (!input.value) {
+        input.nextElementSibling.style.opacity = '1';
+        e.preventDefault();
+        getAlert = false;
+      }
+    } else if (input.type === 'radio') {
+      if (input.checked) {
+        radioValue = input.value;
+      }
     }
-    e.preventDefault();
   }
-
-  // radio 確認
-  if (getRadioNum() > -1) {
-    radioValue = radio[getRadioNum()].value;
-  } else {
-    setAlert = false;
+  if (radioValue === '') {
     document.querySelector('.opt').style.opacity = '1';
     e.preventDefault();
+    getAlert = false;
   }
-
-  if (setAlert) {
-    // eslint-disable-next-line no-alert
+  if (getAlert) {
     alert(`----------資 料 送 出----------
 暱       稱：${document.querySelector('input[name=name]').value}
 信       箱：${document.querySelector('input[name=email]').value}
@@ -36,12 +34,3 @@ element.addEventListener('submit', (e) => {
   `);
   }
 });
-// 確認 radio 是否有勾選
-getRadioNum = () => {
-  for (let i = 0; i < radio.length; i += 1) {
-    if (radio[i].checked) {
-      return i;
-    }
-  }
-  return -1;
-};

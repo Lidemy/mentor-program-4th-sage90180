@@ -63,7 +63,7 @@ function display(video) {
       <img class="picture" src="${video.logos[i]}" alt=""/>
       <div class="info_area">
         <h3>${video.status[i]}</h3>
-        <a class="name" href="${video.links[i]}" target="_blank">${video.links[i]}</a>
+        <a class="name" href="${video.links[i]}" target="_blank">${video.names[i]}</a>
       </div>
       <div class="hoverLine"> </div>
     </div>`;

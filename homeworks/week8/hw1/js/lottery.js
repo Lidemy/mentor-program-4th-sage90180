@@ -1,3 +1,4 @@
+/* eslint-disable no-case-declarations */
 /* eslint-disable no-alert */
 const apiUrl = 'https://dvwhnbka7d.execute-api.us-east-1.amazonaws.com/default/lottery';
 const errorMessage = '系統不穩定，請再試一次';
@@ -11,7 +12,6 @@ function draw(cb) {
       let data;
       try {
         data = JSON.parse(request.responseText);
-        console.log(data);
       } catch (err) {
         cb(errorMessage);
         return;
@@ -31,6 +31,15 @@ function draw(cb) {
   request.send();
 }
 
+function lotteryHtml(text) {
+  lotterySection.innerHTML = `
+  <div class="prizeInfo">
+    <h1>${text}</h1>
+    <div class="lottery_btn" onclick='javascript:window.location.reload()'>再試一次</div>
+  </div>`;
+  lotterySection.style.backgroundSize = '100% 100%';
+}
+
 document.querySelector('.lottery_btn').addEventListener('click', () => {
   draw((err, data) => {
     if (err) {
@@ -40,30 +49,18 @@ document.querySelector('.lottery_btn').addEventListener('click', () => {
     switch (data.prize) {
       case 'FIRST':
         lotterySection.style.backgroundImage = 'url(./imgs/first.png)';
-        lotterySection.innerHTML = `
-        <div class="prizeInfo">
-          <h1>恭喜你中頭獎了！日本東京來回雙人遊！</h1>
-          <div class="lottery_btn" onclick='javascript:window.location.reload()'>再抽一次</div>
-        </div>`;
-        lotterySection.style.backgroundSize = '100% auto';
+        const firstPrize = '恭喜你中頭獎了！日本東京來回雙人遊！';
+        lotteryHtml(firstPrize);
         break;
       case 'SECOND':
         lotterySection.style.backgroundImage = 'url(./imgs/second.png)';
-        lotterySection.innerHTML = `
-        <div class="prizeInfo">
-          <h1>二獎！90 吋電視一台！</h1>
-          <div class="lottery_btn" onclick='javascript:window.location.reload()'>再抽一次</div>
-        </div>`;
-        lotterySection.style.backgroundSize = '100% auto';
+        const secPrize = '二獎！90 吋電視一台！';
+        lotteryHtml(secPrize);
         break;
       case 'THIRD':
         lotterySection.style.backgroundImage = 'url(./imgs/third.png)';
-        lotterySection.innerHTML = `
-        <div class="prizeInfo">
-          <h1>恭喜你抽中三獎：知名 YouTuber 簽名握手會入場券一張，bang！</h1>
-          <div class="lottery_btn" onclick='javascript:window.location.reload()'>再抽一次</div>
-        </div>`;
-        lotterySection.style.backgroundSize = '100% auto';
+        const thirdPrize = '恭喜你抽中三獎：知名 YouTuber 簽名握手會入場券一張，bang！';
+        lotteryHtml(thirdPrize);
         break;
       case 'NONE':
         lotterySection.style.background = 'black';
@@ -71,7 +68,7 @@ document.querySelector('.lottery_btn').addEventListener('click', () => {
         lotterySection.innerHTML = `
         <div class="prizeInfo">
           <h1>銘謝惠顧</h1> 
-          <div class="lottery_btn" onclick='javascript:window.location.reload()'>再抽一次</div>
+          <div class="lottery_btn" onclick='javascript:window.location.reload()'>再試一次</div>
         </div>`;
         break;
       default:
