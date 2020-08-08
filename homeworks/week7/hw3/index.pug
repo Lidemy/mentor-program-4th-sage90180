@@ -13,14 +13,14 @@ html(lang="en")
             .main
                 .top
                     input(type="date").dateinput
-                    input.newtodo(placeholder="你要做什麼事...")
+                    input(type = "text" placeholder="你要做什麼事...").newtodo
                     i.far.fa-calendar-plus
                 .todos
                     .todo_info(date-num='1')
                         .edit_check.fas.fa-check-circle
                         input.check(type="checkbox" checked)
                         .date 2020-06-12
-                        input.todo.done(placeholder="開始上課囉" readonly) 
+                        input.todo.done(type="text" placeholder="開始上課囉" readonly) 
                         .btn_box 
                             i.far.fa-edit.displayNone
                             i.far.fa-trash-alt
@@ -28,7 +28,7 @@ html(lang="en")
                         .edit_check.fas.fa-check-circle
                         input.check(type="checkbox")
                         .date 2020-07-29
-                        input.todo(placeholder="吃西瓜" readonly) 
+                        input.todo(type="text" placeholder="吃西瓜" readonly) 
                         .btn_box 
                             i.far.fa-edit
                             i.far.fa-trash-alt
