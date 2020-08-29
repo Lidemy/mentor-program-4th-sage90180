@@ -1,0 +1,399 @@
+* {
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  transform: .3s;
+}
+
+.admin-post__btn:hover,
+.admin-post__btn:hover,
+.post__action:hover,
+.btn-read-more:hover {
+  background: rgb(230, 236, 250);
+}
+
+.navbar {
+  height: 80px;
+  position: sticky;
+  top: 0px;
+  background: white;
+  z-index: 999;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+}
+
+.navbar__site-name {
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.navbar__site-name a {
+  text-decoration: none;
+  color: #262b49;
+  font-weight: 900;
+}
+.navbar__list a:hover{
+font-weight: 900;
+}
+
+.navbar__list {
+  display: flex;
+  flex: 1;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  justify-content: space-between;
+}
+
+.navbar__list > div {
+  display: flex;
+}
+
+.navbar__list li {
+  margin-left: 21px;
+}
+
+.navbar__list a {
+  text-decoration: none;
+  color: #262b49;
+  font-size: 16px;
+}
+
+.navbar__wrapper {
+  display: flex;
+  align-items: center;
+  height: 100%;
+}
+
+.wrapper {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0px 12px;
+}
+
+.banner {
+  background-image: linear-gradient(to top, #101f31, #31375c);
+  height: 240px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.banner__wrapper > div {
+  margin-top: 26px;
+}
+
+
+.banner h1 {
+  font-size: 28px;
+  margin: 0;
+}
+
+.container-wrapper {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 138px;
+  min-height: calc(100vh - 350px);
+}
+
+.posts, .container {
+  /* background: white; */
+  padding: 10px;
+  display: inline-flex;
+  margin: 0 auto;
+  margin-top: -30px;
+  flex-direction: column;
+}
+
+.post {
+  background: white;
+  width: 900px;
+  padding: 30px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+}
+
+.post + .post {
+  margin-top: 30px;
+}
+
+.post__header {
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-left: solid 10px #262b49;
+  padding: 5px;
+  padding-left: 10px;
+  font-weight: 900;
+  font-size: 20px;
+  line-height: 25px;
+}
+.post__actions {
+  width: 150px;
+  text-align: right;
+}
+.post__action {
+  padding: 3px 12px;
+  border: solid 1px#262b49;
+  color: #262b49;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.index.post__header .post__header-text{
+  overflow:hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.post__info {
+  margin-top: 19px;
+  padding: 12px 22px;
+  background: rgb(240, 242, 247);
+}
+
+.index.post__content {
+  margin-top: 17px;
+  white-space: pre-line;
+  line-height: 1.5em;
+  max-height: 150px;
+  overflow: hidden;
+}
+
+.post__content {
+  margin-top: 17px;
+  white-space: pre-line;
+  line-height: 1.5em;
+}
+
+.btn-read-more {
+  display: inline-block;
+  padding: 12px 16px;
+  border: solid 1px #262b49;
+  color: #262b49;
+  margin-top: 36px;
+  font-weight: 900;
+  text-decoration: none;
+}
+
+.login-wrapper {
+  margin: 0 auto;
+  width: 527px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 62px 72px;
+  margin-top: -30px;
+  background: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+}
+
+.login-wrapper form {
+  width: 100%;
+}
+
+.login-wrapper input {
+  width: 100%;
+}
+
+.input__field {
+  margin-top: 16px;
+  height: 40px;
+}
+
+.login-wrapper input[type=submit] {
+  height: 56px;
+  background-image: linear-gradient(to top, #101f31, #262b49);
+  color: white;
+  margin-top: 73px;
+  border: none;
+}
+
+.login-wrapper h2 {
+  font-size: 32px;
+  font-weight: normal;
+}
+
+.input__wrapper + .input__wrapper {
+  margin-top: 23px;
+}
+
+.input__label {
+  font-size: 14px;
+  margin-left: 21px;
+}
+
+.edit-post {
+  width: 900px;
+  padding: 30px;
+  background: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+}
+
+.edit-post__title {
+  font-size: 20px;
+}
+
+.edit-post__input-wrapper {
+  width: 100%;
+  margin-top: 28px;
+  display: flex;
+}
+
+.edit-post__input-wrapper textarea {
+  width: 100%;
+  padding: 6px;
+  border: solid 1px #262b49;
+}
+.edit-post__input-wrapper select {
+  width: 65px;
+  border: solid 1px #262b49;
+  width: auto;
+  padding: 2px 5px;
+}
+.edit-post__input-wrapper input {
+  padding: 5px;
+  width: 100%;
+  border: solid 1px #262b49;
+}
+.edit-post__input-wrapper label {
+  width: 65px;
+}
+
+.edit-post__btn-wrapper {
+  text-align: right;
+}
+
+.edit-post__btn {
+  display: inline-block;
+  padding: 10px 39px;
+  border: solid 1px #101f31;
+  color: #101f31;
+  cursor: pointer;
+  margin-top: 25px;
+}
+
+.admin-posts {
+  background: white;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, .3);
+}
+
+.admin-post {
+  padding: 24px 0px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+  width: 920px;
+}
+
+.admin-post:hover{
+  font-weight: 900;
+}
+.admin-post + .admin-post {
+  border-top: 1px dashed #101f31;
+}
+
+.admin-post__title {
+  font-size: 16px;
+  margin-left: 16px;
+  border-left: solid 10px #101f31;
+  padding: 5px;
+  padding-left: 10px;
+  color: #101f31;
+}
+
+.admin-post__info {
+  display: flex;
+  align-items: center;
+  margin-left: 12px;
+}
+
+.admin-post__created-at {
+  color: #101f31;
+  margin-right: 20px;
+}
+
+.admin-post__btn {
+  padding: 4px 8px;
+  border: 1px solid #101f31;
+  color: #101f31;
+  cursor: pointer;
+  margin-left: 8px;
+  text-decoration: none;
+}
+
+.admin-post__btn:last-child {
+  margin-right: 16px;
+}
+
+footer {
+  padding: 10px 0px;
+  background-image: linear-gradient(to top, #101f31, #262b49);
+  font-size: 14px;
+  color: white;
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+}
+
+.btn-blog-back {
+  display: inline-block;
+  padding: 12px 16px;
+  border: solid 1px #262b49;
+  color: #262b49;
+  margin-top: 36px;
+  text-decoration: none;
+}
+
+.admin-categories{
+  padding: 20px 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.admin-categories select{
+  width: auto;
+  height: 25px;
+  margin: 5px;
+  border: solid 1px #262b49;
+  outline: none;
+}
+
+
+.admin-categories input{
+  width: 150px;
+  border: solid 1px #262b49;
+  height: 25px;
+  padding: 0px 5px;
+}
+
+.admin-categories form{
+  margin-left: 20px;
+}
+
+.admin-categories button{
+  border: solid 1px #262b49;
+  height: 25px;
+  font-size: 15px;
+}
+
+.admin-categories input:focus{
+  outline: none;
+}
+
+
+.category_list {
+  background: rgb(240, 242, 247);
+  padding: 20px;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.hidden {
+  display: none !important;
+}
