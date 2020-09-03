@@ -1,0 +1,433 @@
+$color_orange: #F4A73A
+
+@mixin width($width: 385px)
+    width: $width
+    
+body,html
+  background: transparent linear-gradient(90deg, #ffa42c 0%, #F7B73D 100%) 0% 0%
+  color: #4F3722
+  text-align: center
+  a
+    text-decoration: none
+
+
+    /* --------上方面板--------- */ 
+.card_container
+  width: 420px
+  margin: auto
+  z-index: 999 !important
+  .card_inner
+    text-align: center
+    transition: transform 1.5s
+    transform-style: preserve-3d
+    margin-top: 30px
+    .card_front,.card_back
+      box-shadow: 0px 0px 20px rgba(0,0,0,.3)
+      background: #fff6ce
+      .card_nickname_area
+        font-size: 20px
+        padding: 8px 30px 
+        font-weight: 900
+        display: flex
+        align-items: center
+        .name
+          padding: 10px 0px
+          display: flex
+          span
+            text-align: left
+            display: inline-block
+            overflow: hidden
+            white-space: nowrap
+            text-overflow: ellipsis
+            max-width: 240px
+        .edit_nickname_btn
+          width: 42px
+          height: 42px
+          border-radius: 25px
+          background: #fff6ce
+          color: $color_orange
+          border: solid 3px #fff6ce
+          cursor: pointer
+          transition: .3s
+          font-size: 26px
+          margin-left: 5px
+        .edit_nickname_btn:hover
+          background: rgba(244,167,58,.15) 
+          border: solid 3px rgba(244,167,58,.15) 
+        .edit_nickname_btn:focus
+          outline: none
+      .edit_nickname_area
+        height: 0px
+        transition: .4s
+        font-size: 20px
+        font-weight: 900
+        display: flex
+        align-items: center
+        padding-left: 30px
+        overflow: hidden
+        input
+          border: solid 2px $color_orange
+          border-radius: 8px
+          padding: 5px 10px
+          width: 210px
+          margin-left: 10px
+        input:focus
+          outline: none
+          border: solid 2px $color_orange
+        .edit_nickname_btn
+          width: 42px
+          height: 42px
+          border-radius: 25px
+          background: #fff6ce
+          color: $color_orange
+          border: solid 3px #fff6ce
+          cursor: pointer
+          transition: .3s
+          font-size: 26px
+          margin-left: 5px
+        .edit_nickname_btn:hover
+          background: rgba(244,167,58,.15) 
+          border: solid 3px rgba(244,167,58,.15) 
+        .edit_nickname_btn:focus
+          outline: none
+      .card_body 
+        textarea
+          background: white
+          border-radius: 15px
+          width: 90%
+          padding: 10px
+          outline: none
+          border: solid 2px #ffe8ca
+          height: 120px
+        textarea::placeholder
+          color: #4F3722
+          font-weight: 500
+        textarea:focus
+          border: solid 2px $color_orange
+        .err_message
+          padding: 10px 10px 0px 10px
+          color: #ec3723
+          font-weight: 900
+          font-size: 18px
+        .card_submit_btn
+          background: none
+          width: 40px
+          height: 40px
+          border-radius: 40px
+          border: solid 3px $color_orange
+          transition: .3s
+          cursor: pointer
+          outline: none
+          margin-top: 10px
+          i
+            color: $color_orange
+            font-size: 22px
+            transition: .3s
+        .card_submit_btn:hover
+          background: rgba(244,167,58,.25) 
+          width: 50px
+          transform: translateX(4px)
+          i
+            transform: translateX(2px)
+      .card_header
+        background: transparent linear-gradient(90deg, #F4A43B 0%, #F7B73D 100%)
+        display: flex
+        justify-content: space-between
+        height: 50px
+        font-size: 26px
+        font-weight: 900
+        line-height: 50px
+        padding: 10px 20px
+        .card_btns
+          a
+            display: inline-block
+            color: white
+            font-size: 22px
+            transition: .3s
+            padding-left: 5px
+          a:hover
+            text-shadow: 0px 0px 5px rgba(79,55,34,.6) 
+            /* --------留言面板--------- */ 
+          
+    .card_comment.card_front
+      position: relative
+      backface-visibility: hidden
+      .card_body  
+        padding: 0px 10px 20px 10px 
+    .card_comment.card_back
+      position: absolute
+      width: 100%
+      // height: 100%
+      top: 0px
+      backface-visibility: hidden
+      transform: rotateY(180deg)
+      .card_body  
+        padding: 0px 10px 20px 10px   
+        /* --------登入面板--------- */ 
+    .card_login.card_front
+      padding-bottom: 20px
+      position: relative
+      backface-visibility: hidden
+      .card_body  
+        display: flex
+        justify-content: center
+        align-items: center
+        text-align: center
+        padding: 25px 7px
+        form
+          margin: 10px 0px
+          .card_form_group
+            text-align: left
+            input
+              padding: 3px 10px
+              margin: 9px 0px
+              border: solid 2px #ffe8ca
+              border-radius: 8px
+            input:focus
+              outline: none
+              border: solid 2px $color_orange
+        .card_submit_btn
+          margin-top: 20px
+        /* --------註冊面板--------- */ 
+    .card_register.card_back
+      position: absolute
+      width: 100%
+      // height: 100%
+      top: 0px
+      backface-visibility: hidden
+      transform: rotateY(180deg)
+      .card_body
+        display: flex
+        justify-content: center
+        align-items: center
+        text-align: center
+        padding: 10px
+        form
+          margin: 10px 0px
+          .card_form_group
+            text-align: left
+            input
+              padding: 3px 7px
+              margin: 5px 0px
+              border: solid 2px #ffe8ca
+              border-radius: 8px
+            input:focus
+              outline: none
+              border: solid 2px $color_orange
+
+
+/* --------留言區--------- */ 
+.message_container
+  width: 400px
+  margin: 30px auto
+  .messages
+    .message
+      text-align: left
+      display: flex
+      align-items: flex-start
+      justify-content: space-between
+      margin-bottom: 30px
+      .message_photo,.message_text_area
+        display: inline-block
+      .message_user_info
+        display: flex
+        align-items: center
+        .message_name
+          font-weight: 900
+          font-size: 20px
+          padding: 5px 0px
+          max-width: 180px
+          overflow: hidden
+          white-space: nowrap
+          text-overflow: ellipsis
+        span
+          max-width: 120px
+          display: inline-block
+          overflow: hidden
+          white-space: nowrap
+          text-overflow: ellipsis
+      .message_photo
+        width: 65px
+        height: 65px
+        border-radius: 100px
+        border: solid 2px white
+        box-shadow: 0px 0px 10px rgba(0,0,0,.3)
+        overflow: hidden
+        img
+          width: 100%
+          height: 100%
+      .message_text_area
+        background: #FDF9E6
+        box-shadow: 0px 0px 10px rgba(0,0,0,.3)
+        width: 290px
+        border-radius: 10px
+        padding: 10px 15px
+        min-height: 55px
+        .message_text
+          padding: 5px 0px 10px 0px
+          letter-spacing: 1px
+          max-height: 160px
+          word-break: break-all
+          overflow: auto
+        .message_edit
+          display: flex
+          justify-content: space-between
+          padding-top: 5px
+          .message_date
+            font-size: 15px
+            opacity: .7
+            font-style: italic
+          .message_btns
+            a
+              padding: 0px 2px
+              color: #4F3722
+              transition: .3s
+            a:hover
+              opacity: .7
+      
+// RWD 樣式
+
+@media (max-width: 380px)
+  .card_container 
+    max-width: 350px
+    margin-top: 20px
+    .card_inner 
+      .card_comment
+        width: 350px
+        .card_header
+          display: flex
+        .card_nickname_area
+          padding: 8px 10px
+        .name
+          span
+            max-width: 200px
+        .card_body
+          textarea.text_area
+            width: 290px
+  .message_container
+    width: 350px
+    .messages
+      .message
+        padding: 10px 0px
+        .message_text_area
+          width: 240px
+
+.page
+  padding: 10px 0px 30px 0px
+  font-weight: 900
+  .pageinator
+    padding: 10px 0px
+    font-size: 18px
+    a
+      color: #4F3722
+  .pageinator a
+    display: inline-block
+    margin: 10px 15px
+    .fa-caret-right,.fa-caret-left
+      transform: scale(1.5)
+    i
+      padding: 5px
+      transition: .3s
+  .first:hover,.previous:hover
+    i
+      transform: translateX(-5px)
+    .fa-caret-left
+      transform: scale(1.5) translateX(-5px)
+  .last:hover,.next:hover
+    i
+      transform: translateX(5px)
+    .fa-caret-right
+      transform: scale(1.5) translateX(5px)
+
+.admin_list_container
+  width: 750px
+  margin: auto
+  z-index: 999 !important
+  margin-top: 50px
+  box-shadow: 0px 0px 20px rgba(0,0,0,.3)
+  .admin_list_header
+    background: transparent linear-gradient(90deg, #F4A43B 0%, #F7B73D 100%)
+    display: flex
+    justify-content: space-between
+    height: 50px
+    font-size: 26px
+    font-weight: 900
+    line-height: 50px
+    padding: 10px 20px
+    .admin_list_btns
+      a
+        display: inline-block
+        color: white
+        font-size: 22px
+        transition: .3s
+        padding-left: 5px
+      a:hover
+        text-shadow: 0px 0px 5px rgba(79,55,34,.6) 
+  .admin_list_body
+    background: #fff6ce
+    padding: 20px 30px
+    table
+      border-collapse: collapse
+      width: 100% !important
+      text-align: left
+      tr
+        th
+          border-bottom: solid 2px #4F3722
+          padding: 10px 5px
+          
+        th + th
+          padding-left: 20px
+        td
+          // max-width: 130px
+          overflow: hidden
+          white-space: nowrap
+          text-overflow: ellipsis
+          padding: 10px 0px
+          border-bottom: dashed 1px rgba(79,55,34,.3) 
+          input
+            width: 150px
+            border: solid 2px white
+            padding: 2px
+          input:focus
+            outline: none
+            border: solid 2px $color_orange
+          form
+            select
+              border: none
+              background: none
+              outline: none
+            button
+              background: $color_orange
+              border-radius: 5px
+              padding: 2px 5px
+              margin-left: 5px
+              border: none
+              color: white
+              transition: .3s
+              cursor: pointer
+              outline: none
+            button:hover
+              box-shadow: 0px 0px 5px #f7b73d
+        td + td
+          padding-left: 10px
+      tr + tr:hover
+        cursor: pointer
+        background: rgba(255,255,255,.4)
+  
+// js toggle 樣式
+.reverse
+  flex-direction: row-reverse
+        
+.back
+  transform: rotateY(180deg)
+  
+.edit_hidden
+  height: 35px !important
+  padding: 5px 0px
+  margin-bottom: 10px
+
+.hidden
+  display: none
+  
+.opacity
+  opacity: .4
