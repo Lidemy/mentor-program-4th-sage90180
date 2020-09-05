@@ -1,0 +1,227 @@
+body, html {
+  background: #004D95;
+}
+
+body a, html a {
+  text-decoration: none;
+}
+
+body a:hover, html a:hover {
+  text-decoration: none;
+}
+
+body *, html * {
+  -webkit-transition: .3s;
+  transition: .3s;
+  border-radius: 0px !important;
+}
+
+.navbar {
+  -webkit-box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  color: white !important;
+  font-size: 25px;
+}
+
+.navbar-brand:hover {
+  color: #FABE00 !important;
+}
+
+.navbar-toggler {
+  color: white !important;
+  border: none;
+  font-size: 30px;
+  cursor: pointer;
+}
+
+.navbar-toggler i:hover {
+  color: #FABE00 !important;
+}
+
+.navbar .nav-item {
+  text-align: center;
+}
+
+.navbar .nav-link {
+  color: white !important;
+}
+
+.navbar .nav-link-save {
+  color: #FABE00 !important;
+}
+
+.navbar .nav-link-save:hover {
+  -webkit-transform: scale(1.15);
+          transform: scale(1.15);
+}
+
+.navbar .nav-link:hover {
+  color: #FABE00 !important;
+}
+
+.board {
+  padding: 0px;
+  -webkit-box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, 0.1);
+  max-width: 800px;
+  /* Let's get this party started */
+  /* Track */
+  /* Handle */
+}
+
+.board-wrap {
+  padding: 20px;
+}
+
+.board-header {
+  font-size: 40px;
+  font-weight: 700;
+  color: #592D00;
+  padding: 10px 0px;
+  background: #FABE00;
+  margin: 0px;
+  border-bottom: solid 6px #592D00;
+}
+
+.board-alert {
+  background: #FEFAE0;
+  font-weight: 900;
+  color: #de3c30;
+  font-size: 20px;
+  padding: 0px;
+}
+
+.board-alert .alert {
+  padding: 8px;
+  background: rgba(255, 190, 0, 0.2);
+  margin: 0px;
+  display: none;
+}
+
+.board-form {
+  background: #FEFAE0;
+  margin: 0px;
+}
+
+.board-form input, .board-form textarea {
+  border: solid 3px #592D00;
+}
+
+.board-form input:hover, .board-form textarea:hover {
+  -webkit-box-shadow: 0px 0px 0px 3px rgba(255, 190, 0, 0.5);
+          box-shadow: 0px 0px 0px 3px rgba(255, 190, 0, 0.5);
+}
+
+.board-form input:focus, .board-form textarea:focus {
+  border: solid 3px #592D00;
+  -webkit-box-shadow: 0px 0px 0px 3px rgba(255, 190, 0, 0.5);
+          box-shadow: 0px 0px 0px 3px rgba(255, 190, 0, 0.5);
+}
+
+.board-add-btn {
+  background: #592D00;
+  color: white;
+  font-weight: 900;
+  letter-spacing: 10px;
+}
+
+.board-add-btn:hover {
+  color: white;
+  -webkit-box-shadow: 0px 0px 3px rgba(255, 190, 0, 0.5);
+          box-shadow: 0px 0px 3px rgba(255, 190, 0, 0.5);
+}
+
+.board-add-btn:hover i {
+  -webkit-transform: scale(1.3);
+          transform: scale(1.3);
+}
+
+.board-list {
+  background: #FEFAE0;
+  margin: 0px;
+}
+
+.board-list-group {
+  color: #565656;
+  padding: 0px 20px 0px 20px;
+  border: none;
+}
+
+.board-list-group-item {
+  padding: 0px;
+  margin: 0px;
+  border: none;
+  background: #FEFAE0;
+  border-bottom: dashed 4px #aaa !important;
+}
+
+.board-list-name, .board-list-message, .board-list-date {
+  padding: 0px;
+}
+
+.board-list-date {
+  font-style: oblique;
+  font-size: 15px;
+}
+
+.board-list-name {
+  overflow: hidden;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.board-list-message {
+  padding: 10px 5px 5px 5px;
+  word-wrap: break-word !important;
+  border-top: solid 1px #f3efda;
+  max-height: 200px;
+  overflow: auto;
+}
+
+.board .badge {
+  background: #004D95;
+  color: white;
+}
+
+.board-footer {
+  margin: 0px;
+  background: #FEFAE0;
+  padding: 20px;
+  color: #592D00;
+  display: justify-cotent-center;
+}
+
+.board-footer-more {
+  padding: 3px 7px;
+  cursor: pointer;
+  border: solid 2px #FEFAE0;
+  font-weight: 900;
+}
+
+.board-footer-more:hover {
+  border: solid 2px #592D00;
+  -webkit-box-shadow: 0px 0px 0px 3px rgba(255, 190, 0, 0.5);
+          box-shadow: 0px 0px 0px 3px rgba(255, 190, 0, 0.5);
+}
+
+.board ::-webkit-scrollbar {
+  width: 8px;
+}
+
+.board ::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.8);
+}
+
+.board ::-webkit-scrollbar-thumb {
+  background: #004D95;
+  width: 10px;
+}
+
+.board ::-webkit-scrollbar-thumb:window-inactive {
+  background: #004D95;
+  width: 10px;
+}
+/*# sourceMappingURL=board.css.map */
