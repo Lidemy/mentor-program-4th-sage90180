@@ -43,7 +43,7 @@ $(document).ready(() => {
     }
     return theRequest;
   }
-
+  // 有效 ID
   if (request.id) {
     $.ajax({
       type: 'GET',

@@ -2,6 +2,8 @@
 /* eslint-disable no-nested-ternary */
 /* eslint-disable no-restricted-syntax */
 /* eslint-disable no-undef */
+
+// 設定日期
 const now = new Date();
 const day = (`0${now.getDate()}`).slice(-2);
 const month = (`0${now.getMonth() + 1}`).slice(-2);
@@ -10,6 +12,7 @@ $('input[type=date]').val(today);
 
 let lists = [];
 
+// 代辦事項數目
 function count() {
   let i = 0;
   for (const list of lists) {
@@ -20,6 +23,7 @@ function count() {
   $('.todo-footer-number').text(i);
 }
 
+// 渲染畫面
 function display(status) {
   $('.todo-list-group').html('');
   for (let i = 0; i < lists.length; i += 1) {
@@ -49,12 +53,9 @@ function display(status) {
   }
 }
 
-
-if (lists.length === 0) {
-  $('.todo-footer').addClass('hide');
-}
-
 $(document).ready(
+  // 隱藏 footer
+  $('.todo-footer').addClass('hide'),
   // 新增文章
   $('.todo-add-btn').click((e) => {
     if ($('input[name=content]').val() === '') {
@@ -69,6 +70,7 @@ $(document).ready(
     display();
     $('.alert').fadeOut();
   }),
+
   // 刪除文章
   $('.todo-list-group').on('click', '.todo-btn-delete', (e) => {
     const todo = $(e.target.parentElement.parentElement);
@@ -124,7 +126,6 @@ $(document).ready(
     $(e.target).attr('disabled', 'disabled');
     lists[todoOrder].thing = $(e.target).val();
   }),
-
 
   // 顯示全部
   $('.show-all').click((e) => {
