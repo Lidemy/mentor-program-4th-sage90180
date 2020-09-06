@@ -127,6 +127,7 @@ $(document).ready(
     lists[todoOrder].thing = $(e.target).val();
   }),
 
+
   // 顯示全部
   $('.show-all').click((e) => {
     display();
