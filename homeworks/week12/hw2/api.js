@@ -5,6 +5,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
 /* eslint-disable no-alert */
+
 // 亂數英文字
 function makerandomletter(max) {
   let text = '';
@@ -22,7 +23,6 @@ function randomusefloor(min, max) {
 
 // 密碼格式 aa000000
 const idNumber = makerandomletter(2) + randomusefloor(1, 999999);
-
 
 $(document).ready(() => {
   // 取得資料

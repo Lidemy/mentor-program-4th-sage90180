@@ -12,6 +12,10 @@ $('input[type=date]').val(today);
 
 let lists = [];
 
+function escape(s) {
+  return s.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/"/g, '&quot;');
+}
+
 // 代辦事項數目
 function count() {
   let i = 0;
@@ -37,7 +41,7 @@ function display(status) {
             <div class="todo-list-info-date ${lists[i].done ? 'done' : ''}">${lists[i].date}</div>
           </div>
           <div class="col-12 col-md-6 todo-list-event">
-            <input type="text" name="todo" value="${lists[i].thing}" class="form-control ${lists[i].done ? 'done' : ''}" disabled="disabled">
+            <input type="text" name="todo" value="${escape(lists[i].thing)}" class="form-control ${lists[i].done ? 'done' : ''}" disabled="disabled">
           </div>
             <div class="todo-list-btns col-md-3 col-12">
             <button class="btn todo-btn-edit fas fa-edit mr-1 ${lists[i].done ? 'hide' : ''}"> 編輯</button>
