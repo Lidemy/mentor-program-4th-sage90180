@@ -62,6 +62,15 @@ $(document).ready(() => {
 
   // 儲存資料
   $('.nav-link-save').click((e) => {
+    if (lists.length === 0) {
+      $('.modal-body').html(`
+        <div class="text-center">
+        儲存失敗<br>
+        <span class="red">請先輸入內容</span>
+      </div>
+        `);
+      return;
+    }
     $.ajax({
       headers: {
         Accept: 'application/json; charset=utf-8',
@@ -82,7 +91,7 @@ $(document).ready(() => {
         儲存成功<br>
         你的ID：${resp.id}<br>
         請以 token 方式帶入<br>
-        例：?id=AA000000<br>
+        ex：---/index.html<span class="red">?id=AA000000</span><br>
       </div>
         `);
       },

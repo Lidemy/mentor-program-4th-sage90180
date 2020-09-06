@@ -280,6 +280,10 @@ body *, html * {
   color: #FABE00;
 }
 
+.red {
+  color: #d84747;
+}
+
 .done {
   text-decoration: line-through;
   color: #aaa;
