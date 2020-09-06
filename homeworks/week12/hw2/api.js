@@ -28,10 +28,10 @@ $(document).ready(() => {
   // 取得資料
 
   // 取得token
-  let Request = new Object();
-  Request = GetRequest();
+  let request = new Object();
+  request = getRequest();
 
-  function GetRequest() {
+  function getRequest() {
     const url = location.search;
     const theRequest = new Object();
     if (url.indexOf('?') != -1) {
@@ -44,10 +44,10 @@ $(document).ready(() => {
     return theRequest;
   }
 
-  if (Request.id) {
+  if (request.id) {
     $.ajax({
       type: 'GET',
-      url: `http://localhost:8080/api_todo/api_todo.php?id=${Request.id}`,
+      url: `http://localhost:8080/api_todo/api_todo.php?id=${request.id}`,
       success: (data) => {
         if (!data.ok) {
           alert('ID 錯誤');
