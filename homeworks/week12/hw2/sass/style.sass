@@ -1,0 +1,190 @@
+$color_yellow: #FABE00
+$color_blue: #004D95
+$color_white: #FEFAE0
+$color_brown: #592D00
+
+
+body,html
+  background: $color_blue
+  a
+    text-decoration: none
+  a:hover
+    text-decoration: none
+  *
+    transition: .3s
+    border-radius: 0px !important
+.navbar
+  box-shadow: 0px 5px 5px rgba(0,0,0,.1)
+  &-brand
+    color: white !important
+    font-size: 25px
+    &:hover
+      color: $color_yellow !important
+  &-toggler
+    color: white !important
+    border: none
+    font-size: 30px
+    cursor: pointer
+    i
+      &:hover
+        color: $color_yellow !important
+  .nav
+    &-item
+      text-align: center
+    &-link
+      color: white !important
+      &-save
+        &:hover
+          transform: scale(1.15)
+      &:hover
+        color: $color_yellow !important
+
+.todo
+  padding: 0px
+  box-shadow: 0px 0px 0px 10px rgba(0,0,0,.1)
+  max-width: 800px
+  &-wrap
+    padding: 20px
+  &-header
+    font-size: 40px
+    font-weight: 700
+    color: $color_brown
+    padding: 10px 0px
+    background: $color_yellow
+    margin: 0px
+    border-bottom: solid 6px $color_brown
+  &-alert
+    background: $color_white
+    font-weight: 900
+    color: #de3c30
+    font-size: 20px
+    padding: 0px
+    .alert
+      padding: 8px
+      background: rgba(255,190,0,.2)
+      margin: 0px
+      display: none
+  &-input
+    background: $color_white
+    margin: 0px
+    input
+      border: solid 3px $color_brown
+      &:hover
+        box-shadow: 0px 0px 0px 3px rgba(255,190,0,.5)
+      &:focus
+        border: solid 3px $color_brown
+        box-shadow: 0px 0px 0px 3px rgba(255,190,0,.5)
+  &-add-btn
+    background: $color_brown
+    color: white
+    font-weight: 900
+    letter-spacing: 10px
+    &:hover
+      color: white
+      box-shadow: 0px 0px 0px 3px rgba(255,190,0,.5)
+      i
+        transform: scale(1.3)
+
+  &-list
+    background: $color_white
+    margin: 0px
+    &-group
+      padding: 0px 20px 0px 20px
+      border: none
+      &-item
+        padding: 0px
+        margin: 0px
+        border: none
+        background: $color_white
+      &-item ~ &-item
+        border-top: dashed 1px #ddd !important
+    &-info
+      padding: 0px
+      font-size: 18px
+      color: #565656
+      font-weight: 700
+      input[name='done']
+        width: 20px !important
+        height: 20px !important
+    &-event
+      padding: 0px
+      input[name='todo']
+        border: solid 3px $color_white
+        background: $color_white
+        font-weight: 700
+        width: 100%
+        &:focus
+          border: solid 3px $color_brown
+          box-shadow: 0px 0px 0px 3px rgba(255,190,0,.5)
+          background: white
+    &-btns 
+      text-align: right
+      padding: 0px
+      .btn
+        font-size: 16px
+        font-weight: 900
+        color: #565656
+        padding: 0px
+        margin: 0px 5px
+        transition: .3s
+        &:hover
+          transform: scale(1.1)
+  
+  &-footer
+    margin: 0px
+    background: $color_white
+    padding: 20px
+    color: $color_brown
+    display: justify-cotent-center
+    border-top: dashed 2px #ddd !important
+    &-list
+      padding: 3px 7px
+      border: solid 2px $color_white
+      font-weight: 900
+    &-btn
+      cursor: pointer
+      &:hover
+        border: solid 2px $color_brown
+        box-shadow: 0px 0px 0px 3px rgba(255,190,0,.5)
+
+.modal
+  *
+    border: none 
+  &-content
+    box-shadow: 0px 0px 0px 8px rgba(0,0,0,.2)
+  &-header
+    color: white
+    background: #004D95
+    border-bottom: solid 5px $color_yellow
+  &-body,&-footer
+    background: $color_white
+  &-body
+    font-weight: 900
+    font-size: 18px
+    color: #565656
+  &-footer
+    border-top: dashed 2px #ddd !important
+  .fa-times-circle
+    font-size: 25px
+    cursor: pointer
+    &:hover 
+      color: $color_yellow
+  button
+    background: $color_brown
+    font-weight: 900
+    &:hover
+      background: $color_brown
+      opacity: .8
+
+
+
+.yellow
+  color: $color_yellow
+.done
+  text-decoration: line-through
+  color: #aaa
+.hide
+  display: none
+.focus
+  border: solid 2px $color_brown
+  box-shadow: 0px 0px 0px 3px rgba(255,190,0,.5)

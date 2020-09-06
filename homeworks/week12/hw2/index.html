@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do List</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+    integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/4f39c4000d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">Todo List</a>
+    <div class="navbar-toggler">
+      <i class="fas fa-cloud-upload-alt mr-2 nav-link-save"></i>
+      <i class="fas fa-hamburger" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"></i>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto align-items-center">
+        <li class="nav-item active d-flex align-items-center">
+          <a class="nav-link" href="#">Todos</a>
+        </li>
+        <li class="nav-item d-flex align-items-center">
+          <a class="nav-link" href="#">Board</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-cloud-upload-alt nav-link-save yellow" data-toggle="modal" data-target="#exampleModal"> 儲存</i></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="todo-wrap mb-4">
+    <div class="container todo">
+      <div class="row mt-4 text-center justify-content-center todo-header">
+        To-Do List
+      </div>
+      <div class="col-12 todo-alert">
+        <div class="alert text-center" role="alert">
+          <i class="fas fa-exclamation-triangle"></i> 請輸入待辦事項
+        </div>
+      </div>
+      <div class="row todo-input pt-3 pb-3 align-items-center">
+        <div class="col-12 col-md-4 pt-2 pb-2">
+          <input type="date" class="form-control">
+        </div>
+        <div class="col-12 col-md-5 pt-2 pb-2">
+          <input type="text" name="content" placeholder="請輸入待辦事項" class="form-control">
+        </div>
+        <div class="col-12 col-md-3 pt-2 pb-2">
+          <button class="btn btn-block todo-add-btn"><i class="fas fa-plus mr-2"></i>新增</button>
+        </div>
+      </div>
+
+      <div class="row todo-list">
+        <div class="col-12 todo-list-group">
+        </div>
+      </div>
+      <div class="row todo-footer justify-content-between text-center">
+        <div class="todo-footer-list col-md-2 col-sm-3 col-12">待辦事項 <span class="todo-footer-number"> 0</span></div>
+        <div class="d-flex justify-content-center col-md-8 col-sm-6 col-12">
+          <div class="todo-footer-list mr-1 todo-footer-btn show-all focus">顯示全部</div>
+          <div class="todo-footer-list mr-1 todo-footer-btn show-done">已完成</div>
+          <div class="todo-footer-list todo-footer-btn show-undone">未完成</div>
+        </div>
+        <div class="todo-footer-list col-md-2 col-sm-3 col-12 btn-delete-all todo-footer-btn">全部刪除</div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header align-items-center">
+          <h5 class="modal-title" id="exampleModalLabel">儲存成功</h5>
+          <i class="fas fa-times-circle" aria-hidden="true" data-dismiss="modal" aria-label="Close"></i>
+        </div>
+        <div class="modal-body">
+          
+        </div>
+        <div class="modal-footer justify-content-center">
+          <a href="index.html">
+            <button type="button" class="btn btn-primary">確認</button>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
+    integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous">
+  </script>
+  <script src="api.js"></script>
+  <script src="todo.js"></script>
+
+</body>
+
+</html>
