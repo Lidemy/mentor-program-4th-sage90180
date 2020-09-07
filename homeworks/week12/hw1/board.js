@@ -54,7 +54,7 @@ function appendCommentToDom(container, comment, isPrepend) {
 const limit = 5;
 
 function getCommentsAPI(siteKey, before, cb) {
-  let url = `http://localhost:8080/api_board/api_comments.php?site_key=${siteKey}&limit=${limit}`;
+  let url = `http://mentor-program.co/mtr04group5/sage/week12/hw1/index.html?site_key=${siteKey}&limit=${limit}`;
   if (before) {
     url += `&before=${before}`;
   }
@@ -116,7 +116,7 @@ $(document).ready(() => {
     };
     $.ajax({
       type: 'POST',
-      url: 'http://localhost:8080/api_board/api_add_comments.php',
+      url: 'http://mentor-program.co/mtr04group5/sage/week12/hw1/api_add_comments.php',
       data: newCommentData,
       success: (resp) => {
         if (!resp.ok) {

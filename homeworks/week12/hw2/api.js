@@ -47,7 +47,7 @@ $(document).ready(() => {
   if (request.id) {
     $.ajax({
       type: 'GET',
-      url: `http://localhost:8080/api_todo/api_todo.php?id=${request.id}`,
+      url: `http://mentor-program.co/mtr04group5/sage/week12/hw2/api_todo.php?id=${request.id}`,
       success: (data) => {
         if (!data.ok) {
           alert('ID 錯誤');
@@ -76,7 +76,7 @@ $(document).ready(() => {
         Accept: 'application/json; charset=utf-8',
       },
       type: 'POST',
-      url: 'http://localhost:8080/api_todo/api_add_todo.php',
+      url: 'http://mentor-program.co/mtr04group5/sage/week12/hw2/api_add_todo.php',
       data: {
         content: JSON.stringify(lists),
         id_number: idNumber,
