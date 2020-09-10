@@ -1,0 +1,154 @@
+$color_yellow: #FABE00
+$color_blue: #004D95
+$color_white: #FEFAE0
+$color_brown: #592D00
+
+body,html
+  background: $color_blue
+  a
+    text-decoration: none
+  a:hover
+    text-decoration: none
+  *
+    transition: .3s
+    border-radius: 0px !important
+.navbar
+  box-shadow: 0px 5px 5px rgba(0,0,0,.1)
+  &-brand
+    color: white !important
+    font-size: 25px
+    &:hover
+      color: $color_yellow !important
+  &-toggler
+    color: white !important
+    border: none
+    font-size: 30px
+    cursor: pointer
+    i
+      &:hover
+        color: $color_yellow !important
+  .nav
+    &-item
+      text-align: center
+    &-link
+      color: white !important
+      &-save
+        color: $color_yellow !important
+        &:hover
+          transform: scale(1.15)
+      &:hover
+        color: $color_yellow !important
+
+.board
+  padding: 0px
+  box-shadow: 0px 0px 0px 10px rgba(0,0,0,.1)
+  max-width: 800px
+  &-wrap
+    padding: 20px
+  &-header
+    font-size: 40px
+    font-weight: 700
+    color: $color_brown
+    padding: 10px 0px
+    background: $color_yellow
+    margin: 0px
+    border-bottom: solid 6px $color_brown
+  &-alert
+    background: $color_white
+    font-weight: 900
+    color: #de3c30
+    font-size: 20px
+    padding: 0px
+    .alert
+      padding: 8px
+      background: rgba(255,190,0,.2)
+      margin: 0px
+      display: none
+  &-form
+    background: $color_white
+    margin: 0px
+    input,textarea
+      border: solid 3px $color_brown
+      &:hover
+        box-shadow: 0px 0px 0px 3px rgba(255,190,0,.5)
+      &:focus
+        border: solid 3px $color_brown
+        box-shadow: 0px 0px 0px 3px rgba(255,190,0,.5)
+  &-add-btn
+    background: $color_brown
+    color: white
+    font-weight: 900
+    letter-spacing: 10px
+    &:hover
+      color: white
+      box-shadow: 0px 0px 3px rgba(255,190,0,.5)
+      i
+        transform: scale(1.3)
+
+  &-list
+    background: $color_white
+    margin: 0px
+    &-group
+      color: #565656
+      padding: 0px 20px 0px 20px
+      border: none
+      &-item
+        padding: 0px
+        margin: 0px
+        border: none
+        background: $color_white
+        border-bottom: dashed 4px #aaa !important
+    &-name,&-message,&-date
+      padding: 0px
+    &-date
+      font-style: oblique
+      font-size: 15px
+    &-name
+      overflow: hidden
+      font-size: 18px
+      font-weight: 900
+    &-message
+      padding: 10px 5px 5px 5px
+      word-wrap: break-word !important
+      border-top: solid 1px #f3efda
+      max-height: 200px
+      overflow: auto
+  .badge
+    background: $color_blue
+    color: white
+
+  &-footer
+    margin: 0px
+    background: $color_white
+    padding: 20px
+    color: $color_brown
+    display: justify-cotent-center
+    &-more
+      padding: 3px 7px
+      cursor: pointer
+      border: solid 2px $color_white
+      font-weight: 900
+      &:hover
+        border: solid 2px $color_brown
+        box-shadow: 0px 0px 0px 3px rgba(255,190,0,.5)
+        
+
+
+  /* Let's get this party started
+  \::-webkit-scrollbar
+    width: 8px
+
+  /* Track
+
+  \::-webkit-scrollbar-track
+    background: rgba(255,255,255,.8)
+
+  /* Handle
+
+  \::-webkit-scrollbar-thumb
+    background: $color_blue
+    width: 10px
+
+    &:window-inactive
+      background: $color_blue
+      width: 10px

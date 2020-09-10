@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Board</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+    integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/4f39c4000d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="css/board.css">
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="#">Hello Board</a>
+    <div class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-hamburger"></i>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto align-items-center">
+        <li class="nav-item active d-flex align-items-center">
+          <a class="nav-link" href="#">Todos</a>
+        </li>
+        <li class="nav-item d-flex align-items-center">
+          <a class="nav-link" href="#">Board</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="board-wrap mb-3">
+    <div class="container board">
+      <div class="row mt-4 text-center justify-content-center board-header">
+        Hello Board
+      </div>
+      <div class="col-12 board-alert">
+        <div class="alert text-center col-12 board-alert" role="alert">
+          <i class="fas fa-exclamation-triangle"></i> 請輸入內容
+        </div>
+      </div>
+      <form class="row board-form pt-4 pb-2" method="POST" action="./api_add_comments.php">
+        <div class="col-12 col-sm-12">
+          <div class="form-group">
+            <textarea type="text" name="content" rows="3" placeholder="請輸入留言" class="form-control"></textarea>
+          </div>
+        </div>
+        <div class="col-12 col-sm-8">
+          <div class="form-group">
+            <input type="text" name="nickname" placeholder="請輸入暱稱" class="form-control">
+          </div>
+        </div>
+        <div class="col-12 col-sm-4">
+          <button type="submit" class="btn btn-block board-add-btn"><i class="fas fa-plus mr-2"></i>新增</button>
+        </div>
+      </form>
+      <div class="row board-list">
+      </div>
+      <div class="row board-footer justify-content-center text-center">
+
+      </div>
+    </div>
+  </div>
+
+
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
+    integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous">
+  </script>
+  <script src="board.js"></script>
+
+
+</body>
+
+</html>
