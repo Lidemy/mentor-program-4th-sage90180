@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Board</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css"
+    integrity="sha384-VCmXjywReHh4PwowAiWNagnWcLhlEJLA5buUprzK8rxFgeH0kww/aWY76TfkUoSX" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/4f39c4000d.js" crossorigin="anonymous"></script>
+  <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+  <script src="./dist/main.js"></script>
+  <script>
+    $(document).ready(() => {
+      commentPlugin.init({
+        siteKey: 'sage',
+        apiUrl: 'http://mentor-program.co/mtr04group5/sage/week12/hw1',
+        containerSelector: '.board-area',
+        limit: 5
+      })
+    });
+    $(document).ready(() => {
+      commentPlugin.init({
+        siteKey: 'sage_2',
+        apiUrl: 'http://mentor-program.co/mtr04group5/sage/week12/hw1',
+        containerSelector: '.board-area_2',
+        limit: 5
+      })
+    });
+  </script>
+</head>
+
+<body>
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="http://mentor-program.co/mtr04group5/sage/week12/hw1/index.html">Hello Board</a>
+    <div class="navbar-toggler" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <i class="fas fa-hamburger"></i>
+    </div>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto align-items-center">
+        <li class="nav-item active d-flex align-items-center">
+          <a class="nav-link" href="http://mentor-program.co/mtr04group5/sage/week12/hw2/index.html">Todos</a>
+        </li>
+        <li class="nav-item d-flex align-items-center">
+          <a class="nav-link" href="http://mentor-program.co/mtr04group5/sage/week12/hw1/index.html">Board</a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <div class="row justify-content-center px-3">
+    <div class="col-md-6 col-12 my-3 board-area"></div>
+     <div class="col-md-6 col-12 my-3 board-area_2"></div>
+  </div>
+
+
+  
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/js/bootstrap.min.js"
+    integrity="sha384-XEerZL0cuoUbHE4nZReLT7nx9gQrQreJekYhJD9WNWhH8nEW+0c5qq7aIo2Wl30J" crossorigin="anonymous">
+  </script>
+
+
+</body>
+
+</html>
