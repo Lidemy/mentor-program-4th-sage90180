@@ -1,0 +1,528 @@
+@charset "UTF-8";
+body, html {
+  background: transparent -webkit-gradient(linear, left top, right top, from(#ffa42c), to(#F7B73D)) 0% 0%;
+  background: transparent -webkit-linear-gradient(left, #ffa42c 0%, #F7B73D 100%) 0% 0%;
+  background: transparent -o-linear-gradient(left, #ffa42c 0%, #F7B73D 100%) 0% 0%;
+  background: transparent linear-gradient(90deg, #ffa42c 0%, #F7B73D 100%) 0% 0%;
+  color: #4F3722;
+  text-align: center; }
+  body a, html a {
+    text-decoration: none;
+    /* --------上方面板--------- */ }
+
+.card_container {
+  width: 420px;
+  margin: auto;
+  z-index: 999 !important; }
+  .card_container .card_inner {
+    text-align: center;
+    -webkit-transition: -webkit-transform 1.5s;
+    transition: -webkit-transform 1.5s;
+    -o-transition: transform 1.5s;
+    transition: transform 1.5s;
+    transition: transform 1.5s, -webkit-transform 1.5s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    margin-top: 30px; }
+    .card_container .card_inner .card_front, .card_container .card_inner .card_back {
+      -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+      box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+      background: #fff6ce; }
+      .card_container .card_inner .card_front .card_nickname_area, .card_container .card_inner .card_back .card_nickname_area {
+        font-size: 20px;
+        padding: 8px 30px;
+        font-weight: 900;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center; }
+        .card_container .card_inner .card_front .card_nickname_area .name, .card_container .card_inner .card_back .card_nickname_area .name {
+          padding: 10px 0px;
+          display: -webkit-box;
+          display: -ms-flexbox;
+          display: flex; }
+          .card_container .card_inner .card_front .card_nickname_area .name span, .card_container .card_inner .card_back .card_nickname_area .name span {
+            text-align: left;
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            -o-text-overflow: ellipsis;
+            text-overflow: ellipsis;
+            max-width: 240px; }
+        .card_container .card_inner .card_front .card_nickname_area .edit_nickname_btn, .card_container .card_inner .card_back .card_nickname_area .edit_nickname_btn {
+          width: 42px;
+          height: 42px;
+          border-radius: 25px;
+          background: #fff6ce;
+          color: #F4A73A;
+          border: solid 3px #fff6ce;
+          cursor: pointer;
+          -webkit-transition: .3s;
+          -o-transition: .3s;
+          transition: .3s;
+          font-size: 26px;
+          margin-left: 5px; }
+        .card_container .card_inner .card_front .card_nickname_area .edit_nickname_btn:hover, .card_container .card_inner .card_back .card_nickname_area .edit_nickname_btn:hover {
+          background: rgba(244, 167, 58, 0.15);
+          border: solid 3px rgba(244, 167, 58, 0.15); }
+        .card_container .card_inner .card_front .card_nickname_area .edit_nickname_btn:focus, .card_container .card_inner .card_back .card_nickname_area .edit_nickname_btn:focus {
+          outline: none; }
+      .card_container .card_inner .card_front .edit_nickname_area, .card_container .card_inner .card_back .edit_nickname_area {
+        height: 0px;
+        -webkit-transition: .4s;
+        -o-transition: .4s;
+        transition: .4s;
+        font-size: 20px;
+        font-weight: 900;
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        padding-left: 30px;
+        overflow: hidden; }
+        .card_container .card_inner .card_front .edit_nickname_area input, .card_container .card_inner .card_back .edit_nickname_area input {
+          border: solid 2px #F4A73A;
+          border-radius: 8px;
+          padding: 5px 10px;
+          width: 210px;
+          margin-left: 10px; }
+        .card_container .card_inner .card_front .edit_nickname_area input:focus, .card_container .card_inner .card_back .edit_nickname_area input:focus {
+          outline: none;
+          border: solid 2px #F4A73A; }
+        .card_container .card_inner .card_front .edit_nickname_area .edit_nickname_btn, .card_container .card_inner .card_back .edit_nickname_area .edit_nickname_btn {
+          width: 42px;
+          height: 42px;
+          border-radius: 25px;
+          background: #fff6ce;
+          color: #F4A73A;
+          border: solid 3px #fff6ce;
+          cursor: pointer;
+          -webkit-transition: .3s;
+          -o-transition: .3s;
+          transition: .3s;
+          font-size: 26px;
+          margin-left: 5px; }
+        .card_container .card_inner .card_front .edit_nickname_area .edit_nickname_btn:hover, .card_container .card_inner .card_back .edit_nickname_area .edit_nickname_btn:hover {
+          background: rgba(244, 167, 58, 0.15);
+          border: solid 3px rgba(244, 167, 58, 0.15); }
+        .card_container .card_inner .card_front .edit_nickname_area .edit_nickname_btn:focus, .card_container .card_inner .card_back .edit_nickname_area .edit_nickname_btn:focus {
+          outline: none; }
+      .card_container .card_inner .card_front .card_body textarea, .card_container .card_inner .card_back .card_body textarea {
+        background: white;
+        border-radius: 15px;
+        width: 90%;
+        padding: 10px;
+        outline: none;
+        border: solid 2px #ffe8ca;
+        height: 120px; }
+      .card_container .card_inner .card_front .card_body textarea::-webkit-input-placeholder, .card_container .card_inner .card_back .card_body textarea::-webkit-input-placeholder {
+        color: #4F3722;
+        font-weight: 500; }
+      .card_container .card_inner .card_front .card_body textarea:-ms-input-placeholder, .card_container .card_inner .card_back .card_body textarea:-ms-input-placeholder {
+        color: #4F3722;
+        font-weight: 500; }
+      .card_container .card_inner .card_front .card_body textarea::-ms-input-placeholder, .card_container .card_inner .card_back .card_body textarea::-ms-input-placeholder {
+        color: #4F3722;
+        font-weight: 500; }
+      .card_container .card_inner .card_front .card_body textarea::placeholder, .card_container .card_inner .card_back .card_body textarea::placeholder {
+        color: #4F3722;
+        font-weight: 500; }
+      .card_container .card_inner .card_front .card_body textarea:focus, .card_container .card_inner .card_back .card_body textarea:focus {
+        border: solid 2px #F4A73A; }
+      .card_container .card_inner .card_front .card_body .err_message, .card_container .card_inner .card_back .card_body .err_message {
+        padding: 10px 10px 0px 10px;
+        color: #ec3723;
+        font-weight: 900;
+        font-size: 18px; }
+      .card_container .card_inner .card_front .card_body .card_submit_btn, .card_container .card_inner .card_back .card_body .card_submit_btn {
+        background: none;
+        width: 40px;
+        height: 40px;
+        border-radius: 40px;
+        border: solid 3px #F4A73A;
+        -webkit-transition: .3s;
+        -o-transition: .3s;
+        transition: .3s;
+        cursor: pointer;
+        outline: none;
+        margin-top: 10px; }
+        .card_container .card_inner .card_front .card_body .card_submit_btn i, .card_container .card_inner .card_back .card_body .card_submit_btn i {
+          color: #F4A73A;
+          font-size: 22px;
+          -webkit-transition: .3s;
+          -o-transition: .3s;
+          transition: .3s; }
+      .card_container .card_inner .card_front .card_body .card_submit_btn:hover, .card_container .card_inner .card_back .card_body .card_submit_btn:hover {
+        background: rgba(244, 167, 58, 0.25);
+        width: 50px;
+        -webkit-transform: translateX(4px);
+        -ms-transform: translateX(4px);
+        transform: translateX(4px); }
+        .card_container .card_inner .card_front .card_body .card_submit_btn:hover i, .card_container .card_inner .card_back .card_body .card_submit_btn:hover i {
+          -webkit-transform: translateX(2px);
+          -ms-transform: translateX(2px);
+          transform: translateX(2px); }
+      .card_container .card_inner .card_front .card_header, .card_container .card_inner .card_back .card_header {
+        background: transparent -webkit-gradient(linear, left top, right top, from(#F4A43B), to(#F7B73D));
+        background: transparent -webkit-linear-gradient(left, #F4A43B 0%, #F7B73D 100%);
+        background: transparent -o-linear-gradient(left, #F4A43B 0%, #F7B73D 100%);
+        background: transparent linear-gradient(90deg, #F4A43B 0%, #F7B73D 100%);
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        height: 50px;
+        font-size: 26px;
+        font-weight: 900;
+        line-height: 50px;
+        padding: 10px 20px; }
+        .card_container .card_inner .card_front .card_header .card_btns a, .card_container .card_inner .card_back .card_header .card_btns a {
+          display: inline-block;
+          color: white;
+          font-size: 22px;
+          -webkit-transition: .3s;
+          -o-transition: .3s;
+          transition: .3s;
+          padding-left: 5px; }
+        .card_container .card_inner .card_front .card_header .card_btns a:hover, .card_container .card_inner .card_back .card_header .card_btns a:hover {
+          text-shadow: 0px 0px 5px rgba(79, 55, 34, 0.6);
+          /* --------留言面板--------- */ }
+    .card_container .card_inner .card_comment.card_front {
+      position: relative;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden; }
+      .card_container .card_inner .card_comment.card_front .card_body {
+        padding: 0px 10px 20px 10px; }
+    .card_container .card_inner .card_comment.card_back {
+      position: absolute;
+      width: 100%;
+      top: 0px;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transform: rotateY(180deg);
+      transform: rotateY(180deg); }
+      .card_container .card_inner .card_comment.card_back .card_body {
+        padding: 0px 10px 20px 10px;
+        /* --------登入面板--------- */ }
+    .card_container .card_inner .card_login.card_front {
+      padding-bottom: 20px;
+      position: relative;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden; }
+      .card_container .card_inner .card_login.card_front .card_body {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        text-align: center;
+        padding: 25px 7px;
+        /* --------註冊面板--------- */ }
+        .card_container .card_inner .card_login.card_front .card_body form {
+          margin: 10px 0px; }
+          .card_container .card_inner .card_login.card_front .card_body form .card_form_group {
+            text-align: left; }
+            .card_container .card_inner .card_login.card_front .card_body form .card_form_group input {
+              padding: 3px 10px;
+              margin: 9px 0px;
+              border: solid 2px #ffe8ca;
+              border-radius: 8px; }
+            .card_container .card_inner .card_login.card_front .card_body form .card_form_group input:focus {
+              outline: none;
+              border: solid 2px #F4A73A; }
+        .card_container .card_inner .card_login.card_front .card_body .card_submit_btn {
+          margin-top: 20px; }
+    .card_container .card_inner .card_register.card_back {
+      position: absolute;
+      width: 100%;
+      top: 0px;
+      -webkit-backface-visibility: hidden;
+      backface-visibility: hidden;
+      -webkit-transform: rotateY(180deg);
+      transform: rotateY(180deg); }
+      .card_container .card_inner .card_register.card_back .card_body {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: center;
+        -ms-flex-pack: center;
+        justify-content: center;
+        -webkit-box-align: center;
+        -ms-flex-align: center;
+        align-items: center;
+        text-align: center;
+        padding: 10px; }
+        .card_container .card_inner .card_register.card_back .card_body form {
+          margin: 10px 0px; }
+          .card_container .card_inner .card_register.card_back .card_body form .card_form_group {
+            text-align: left; }
+            .card_container .card_inner .card_register.card_back .card_body form .card_form_group input {
+              padding: 3px 7px;
+              margin: 5px 0px;
+              border: solid 2px #ffe8ca;
+              border-radius: 8px; }
+            .card_container .card_inner .card_register.card_back .card_body form .card_form_group input:focus {
+              outline: none;
+              border: solid 2px #F4A73A; }
+
+/* --------留言區--------- */
+.message_container {
+  width: 400px;
+  margin: 30px auto; }
+  .message_container .messages .message {
+    text-align: left;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: start;
+    -ms-flex-align: start;
+    align-items: flex-start;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    margin-bottom: 30px; }
+    .message_container .messages .message .message_photo, .message_container .messages .message .message_text_area {
+      display: inline-block; }
+    .message_container .messages .message .message_user_info {
+      display: -webkit-box;
+      display: -ms-flexbox;
+      display: flex;
+      -webkit-box-align: center;
+      -ms-flex-align: center;
+      align-items: center; }
+      .message_container .messages .message .message_user_info .message_name {
+        font-weight: 900;
+        font-size: 20px;
+        padding: 5px 0px;
+        max-width: 180px;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis; }
+      .message_container .messages .message .message_user_info span {
+        max-width: 120px;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis; }
+    .message_container .messages .message .message_photo {
+      width: 65px;
+      height: 65px;
+      border-radius: 100px;
+      border: solid 2px white;
+      -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+      overflow: hidden; }
+      .message_container .messages .message .message_photo img {
+        width: 100%;
+        height: 100%; }
+    .message_container .messages .message .message_text_area {
+      background: #FDF9E6;
+      -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+      box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+      width: 290px;
+      border-radius: 10px;
+      padding: 10px 15px;
+      min-height: 55px; }
+      .message_container .messages .message .message_text_area .message_text {
+        padding: 5px 0px 10px 0px;
+        letter-spacing: 1px;
+        max-height: 160px;
+        word-break: break-all;
+        overflow: auto; }
+      .message_container .messages .message .message_text_area .message_edit {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex;
+        -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+        justify-content: space-between;
+        padding-top: 5px; }
+        .message_container .messages .message .message_text_area .message_edit .message_date {
+          font-size: 15px;
+          opacity: .7;
+          font-style: italic; }
+        .message_container .messages .message .message_text_area .message_edit .message_btns a {
+          padding: 0px 2px;
+          color: #4F3722;
+          -webkit-transition: .3s;
+          -o-transition: .3s;
+          transition: .3s; }
+        .message_container .messages .message .message_text_area .message_edit .message_btns a:hover {
+          opacity: .7; }
+
+@media (max-width: 380px) {
+  .card_container {
+    max-width: 350px;
+    margin-top: 20px; }
+    .card_container .card_inner .card_comment {
+      width: 350px; }
+      .card_container .card_inner .card_comment .card_header {
+        display: -webkit-box;
+        display: -ms-flexbox;
+        display: flex; }
+      .card_container .card_inner .card_comment .card_nickname_area {
+        padding: 8px 10px; }
+      .card_container .card_inner .card_comment .name span {
+        max-width: 200px; }
+      .card_container .card_inner .card_comment .card_body textarea.text_area {
+        width: 290px; }
+  .message_container {
+    width: 350px; }
+    .message_container .messages .message {
+      padding: 10px 0px; }
+      .message_container .messages .message .message_text_area {
+        width: 240px; } }
+
+.page {
+  padding: 10px 0px 30px 0px;
+  font-weight: 900; }
+  .page .pageinator {
+    padding: 10px 0px;
+    font-size: 18px; }
+    .page .pageinator a {
+      color: #4F3722; }
+  .page .pageinator a {
+    display: inline-block;
+    margin: 10px 15px; }
+    .page .pageinator a .fa-caret-right, .page .pageinator a .fa-caret-left {
+      -webkit-transform: scale(1.5);
+      -ms-transform: scale(1.5);
+      transform: scale(1.5); }
+    .page .pageinator a i {
+      padding: 5px;
+      -webkit-transition: .3s;
+      -o-transition: .3s;
+      transition: .3s; }
+  .page .first:hover i, .page .previous:hover i {
+    -webkit-transform: translateX(-5px);
+    -ms-transform: translateX(-5px);
+    transform: translateX(-5px); }
+  .page .first:hover .fa-caret-left, .page .previous:hover .fa-caret-left {
+    -webkit-transform: scale(1.5) translateX(-5px);
+    -ms-transform: scale(1.5) translateX(-5px);
+    transform: scale(1.5) translateX(-5px); }
+  .page .last:hover i, .page .next:hover i {
+    -webkit-transform: translateX(5px);
+    -ms-transform: translateX(5px);
+    transform: translateX(5px); }
+  .page .last:hover .fa-caret-right, .page .next:hover .fa-caret-right {
+    -webkit-transform: scale(1.5) translateX(5px);
+    -ms-transform: scale(1.5) translateX(5px);
+    transform: scale(1.5) translateX(5px); }
+
+.admin_list_container {
+  width: 750px;
+  margin: auto;
+  z-index: 999 !important;
+  margin-top: 50px;
+  -webkit-box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.3); }
+  .admin_list_container .admin_list_header {
+    background: transparent -webkit-gradient(linear, left top, right top, from(#F4A43B), to(#F7B73D));
+    background: transparent -webkit-linear-gradient(left, #F4A43B 0%, #F7B73D 100%);
+    background: transparent -o-linear-gradient(left, #F4A43B 0%, #F7B73D 100%);
+    background: transparent linear-gradient(90deg, #F4A43B 0%, #F7B73D 100%);
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    height: 50px;
+    font-size: 26px;
+    font-weight: 900;
+    line-height: 50px;
+    padding: 10px 20px; }
+    .admin_list_container .admin_list_header .admin_list_btns a {
+      display: inline-block;
+      color: white;
+      font-size: 22px;
+      -webkit-transition: .3s;
+      -o-transition: .3s;
+      transition: .3s;
+      padding-left: 5px; }
+    .admin_list_container .admin_list_header .admin_list_btns a:hover {
+      text-shadow: 0px 0px 5px rgba(79, 55, 34, 0.6); }
+  .admin_list_container .admin_list_body {
+    background: #fff6ce;
+    padding: 20px 30px; }
+    .admin_list_container .admin_list_body table {
+      border-collapse: collapse;
+      width: 100% !important;
+      text-align: left; }
+      .admin_list_container .admin_list_body table tr th {
+        border-bottom: solid 2px #4F3722;
+        padding: 10px 5px; }
+      .admin_list_container .admin_list_body table tr th + th {
+        padding-left: 20px; }
+      .admin_list_container .admin_list_body table tr td {
+        overflow: hidden;
+        white-space: nowrap;
+        -o-text-overflow: ellipsis;
+        text-overflow: ellipsis;
+        padding: 10px 0px;
+        border-bottom: dashed 1px rgba(79, 55, 34, 0.3); }
+        .admin_list_container .admin_list_body table tr td input {
+          width: 150px;
+          border: solid 2px white;
+          padding: 2px; }
+        .admin_list_container .admin_list_body table tr td input:focus {
+          outline: none;
+          border: solid 2px #F4A73A; }
+        .admin_list_container .admin_list_body table tr td form select {
+          border: none;
+          background: none;
+          outline: none; }
+        .admin_list_container .admin_list_body table tr td form button {
+          background: #F4A73A;
+          border-radius: 5px;
+          padding: 2px 5px;
+          margin-left: 5px;
+          border: none;
+          color: white;
+          -webkit-transition: .3s;
+          -o-transition: .3s;
+          transition: .3s;
+          cursor: pointer;
+          outline: none; }
+        .admin_list_container .admin_list_body table tr td form button:hover {
+          -webkit-box-shadow: 0px 0px 5px #f7b73d;
+          box-shadow: 0px 0px 5px #f7b73d; }
+      .admin_list_container .admin_list_body table tr td + td {
+        padding-left: 10px; }
+      .admin_list_container .admin_list_body table tr + tr:hover {
+        cursor: pointer;
+        background: rgba(255, 255, 255, 0.4); }
+
+.reverse {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+  -ms-flex-direction: row-reverse;
+  flex-direction: row-reverse; }
+
+.back {
+  -webkit-transform: rotateY(180deg);
+  transform: rotateY(180deg); }
+
+.edit_hidden {
+  height: 35px !important;
+  padding: 5px 0px;
+  margin-bottom: 10px; }
+
+.hidden {
+  display: none; }
+
+.opacity {
+  opacity: .4; }
