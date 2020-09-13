@@ -1,6 +1,8 @@
-/* eslint-disable no-restricted-syntax */
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-undef */
+/* eslint-disable no-restricted-syntax */
+/* eslint-disable arrow-body-style */
+/* eslint-disable no-sequences */
 /* eslint-disable no-use-before-define */
 const topGameUrl = 'https://api.twitch.tv/kraken/games/top?limit=5';
 const channelUrl = 'https://api.twitch.tv/kraken/streams/?limit=24&game=';
@@ -21,7 +23,9 @@ fetch(topGameUrl, {
     topGames = data.top;
     displayGameName(topGames);
     displayGameChannel(topGames[0].game.name);
-  }).catch(err => 'err', err);
+  }).catch((err) => {
+    return 'err', err;
+  });
 
 
 // 顯示前五名
@@ -39,7 +43,9 @@ function displayGameChannel(game) {
     method: 'get',
     headers,
   })
-    .then(res => res.json())
+    .then((res) => {
+      return res.json();
+    })
     .then((data) => {
       const channels = data.streams;
       for (ch of channels) {
