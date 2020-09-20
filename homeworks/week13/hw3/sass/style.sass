@@ -1,0 +1,150 @@
+$dark_purple: #2b2353
+$light_purple: #8FA8D7
+
+body, html
+  background: transparent linear-gradient(180deg, #0C0E27 80%, #2D274E 100%) 0% 0% no-repeat padding-box
+  text-align: center
+a,a:hover
+  text-decoration: none
+*
+  transition: .2s
+.logo
+  width: 180px
+.container
+  padding: 0px
+.navbar
+  border-top: solid 12px rgba(#0C0E27,.9)
+  background: $dark_purple
+  color: $light_purple
+  position: sticky
+  top: 0px
+  z-index: 999
+  box-shadow: 0px 0px 10px rgba(12, 14, 39, 1)
+  &-brand
+    img
+      max-width: 250px
+      top: 50%
+      transform: translateY(-50%)
+      position: absolute
+  &-toggler
+    border: none
+    i
+      color: $light_purple
+      font-size: 30px
+  &-nav,.nav
+    &-link
+      color: $light_purple !important
+      font-weight: 700
+      &:hover
+        opacity: .5
+.channel
+  color: $light_purple
+  min-height: 1000px
+  &__gamename
+    font-size: 150px
+    line-height: 160px
+    position: relative
+    h1
+      color: #CB7E3C
+      font-weight: 700
+      font-size: 3rem
+    &-no
+      color: rgba($dark_purple,.8)
+      top: 25px
+      position: relative
+      font-weight: 700
+  &__card
+    text-align: center
+    filter: brightness(0.7)
+    margin: 20px 0px
+    &:hover
+      filter: brightness(1)
+      .channel__hover
+        width: 100%
+      .channel__info 
+        background: transparent linear-gradient(0deg, rgba(255, 255, 255, 0.2) 0%, rgba(255, 255, 255, 0) 60%) 0% 0% no-repeat padding-box
+  &__thumbnail
+    height: 200px
+    overflow: hidden
+    position: relative
+    img
+      width: 100%
+  &__views
+    position: absolute
+    top: 10px
+    right: 10px
+    color: $light_purple
+    padding: 3px 8px
+    border-radius: 5px
+    background: rgba(0,0,0,.7)
+    font-size: 15px
+  &__info
+    background: transparent linear-gradient(0deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0) 60%) 0% 0% no-repeat padding-box
+    text-align: left
+    max-width: 100%
+    justify-content: space-around
+  &__photo
+    border-radius: 50px
+    width: 60px
+    height: 60px
+    border-radius: 50px
+    box-shadow: 0px 0px 10px rgba(12, 14, 39, 1)
+    border: solid 3px rgba(#2b2353,.5)
+  &__text
+    overflow: hidden
+    width: 100%
+  &__title
+    overflow: hidden
+    white-space: nowrap
+    text-overflow: ellipsis
+    margin-bottom: 5px
+  &__name
+    color: $light_purple
+    opacity: .5
+    &:hover
+      color: $light_purple
+      opacity: 1
+  &__hover
+    position: absolute
+    background: transparent linear-gradient(90deg, rgba(34, 29, 59, 0) 0%, #8fa8d7 50%, rgba(34, 29, 59, 0) 100%) 0% 0% no-repeat padding-box
+    height: 4px
+    bottom: 0px
+    width: 0px
+.load
+  &__more
+    border: solid 1px $light_purple
+    color: $light_purple
+    padding: 15px 20px
+    box-shadow: 0px 0px 10px rgba(143, 168, 215, 0.8)
+    font-size: 20px
+    font-weight: 500px
+    &:hover
+      color: $light_purple
+      background: rgba($light_purple,.15)
+hr
+  border: none
+  height: 3px
+  margin: 0px
+  background: transparent linear-gradient(90deg, rgba(34, 29, 59, 0) 0%, #4a4272 50%, rgba(34, 29, 59, 0) 100%) 0% 0% no-repeat padding-box
+
+@media (max-width: 1200px)
+  .navbar
+    &-nav,.nav
+      &-link
+        max-width: 150px
+        overflow: hidden
+        white-space: nowrap
+        text-overflow: ellipsis
+@media (max-width: 990px)
+  .logo
+    max-width: 150px
+  .navbar
+    padding: 2px
+    &-brand
+      img
+        width: 180px
+        position: absolute
+        top: 25px
+    &-nav,.nav
+      &-link
+        max-width: 100%
