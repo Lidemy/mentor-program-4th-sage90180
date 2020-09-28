@@ -16,8 +16,9 @@
   if (!empty($_SESSION['username'])) {
     $username = $_SESSION['username'];
     $content = getCommentFromId($id)['content'];
-    $nickname = getUserFromUsername($username)['nickname'];
-    $role = getUserFromUsername($username)['role'];
+    $user = getUserFromUsername($username);
+    $nickname = $user['nickname'];
+    $role = $user['role'];
   }
 
   // 抓出 comments 資料

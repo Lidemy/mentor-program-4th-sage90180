@@ -85,7 +85,7 @@ function displayGameChannel(game) {
 document.querySelector('.navbar').addEventListener('click', (e) => {
   const links = [];
   pageOffset = 0;
-  for (game of topGames) {
+  for (const game of topGames) {
     links.push(game.game.name);
   }
   const number = links.indexOf(e.target.innerText);
