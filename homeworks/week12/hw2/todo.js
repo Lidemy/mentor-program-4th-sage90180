@@ -100,15 +100,9 @@ $(document).ready(
   $('.todo-list-group').on('click', 'input[type=checkbox]', (e) => {
     const todo = $(e.target.parentElement.parentElement);
     const todoOrder = todo.attr('data-number') - 1;
-    if ($(e.target).prop('checked')) {
-      lists[todoOrder].done = true;
-      display();
-      count();
-    } else {
-      lists[todoOrder].done = false;
-      display();
-      count();
-    }
+    lists[todoOrder].done = $(e.target).prop('checked');
+    display();
+    count();
   }),
 
   // 編輯

@@ -1,13 +1,13 @@
 <?php 
+  session_start();
   require_once('conn.php');
 
   $nickname = $_POST['nickname'];
-  $username = $_POST['username'];
+  $username = $_SESSION['username'];
 
   if(empty($nickname)){
     header('Location: index.php?errCode=2');
     die('資料不齊全');
-  }
 
   // SQL Injection
   $sql = "UPDATE sage_users SET nickname = ? WHERE username = ?";

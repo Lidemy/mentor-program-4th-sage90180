@@ -17,6 +17,10 @@
     $stmt = $conn->prepare($sql);
     $stmt->bind_param('ss', $content, $id);
     $result = $stmt->execute();
+    if(!$result) {
+      die($comm->error);
+    }
+    header('Location: index.php');
   }
   
   // 普通會員編輯留言
