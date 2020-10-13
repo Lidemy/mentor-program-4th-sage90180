@@ -1,0 +1,33 @@
+<head>
+  <%- include ('./templates/head') %> 
+</head>
+
+<body>
+  <%- include ('./templates/navbar') %> 
+
+  <%- include ('./templates/banner') %> 
+
+  <div class="container">
+      <article class="edit-post">
+        <div class="login__err-message"><%= errorMessage %></div>
+        <form action="/add" method="POST">
+          <div class="edit-post__title">
+            發表文章：
+          </div>
+          <div class="edit-post__input-wrapper">
+            <input class="edit-post__input" name="title" placeholder="請輸入標題" /> 
+          </div>
+          <div class="edit-post__input-wrapper">
+            <textarea rows="20" name="content" class="edit-post__content"></textarea>
+          </div>
+          <div class="edit-post__btn-wrapper">
+            <input class="edit-post__btn" type='submit' value="新 增" />
+          </div>
+        </form>
+      </article>
+  </div>
+
+
+  <%- include ('./templates/footer') %> 
+  <%- include ('./templates/script') %> 
+</body>

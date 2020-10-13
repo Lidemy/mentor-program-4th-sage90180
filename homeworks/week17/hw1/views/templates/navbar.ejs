@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <div class="navbar__site-name">
+    <a href='./'>Who's Blog</a>
+  </div>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav ml-3">
+      <li class="nav-item">
+        <a class="nav-link" href="/list">文章列表</a>
+      </li>
+      <!-- <li class="nav-item">
+        <a class="nav-link" href="#">分類專區</a>
+      </li> -->
+      <li class="nav-item">
+        <a class="nav-link" href="/about">關於我</a>
+      </li>
+    </ul>
+    <div class="form-inline ml-auto">
+      <% if(username) { %>
+        <div class="nav-item mr-3">
+          <a href="/add">新增文章</a>
+        </div>
+        <div class="nav-item">
+          <a href="/logout">登 出</a>
+        </div>
+      <% } else { %>
+        <div class="nav-item mr-3">
+          <a href="/register">註 冊</a>
+        </div>
+        <div class="nav-item">
+          <a href="/login">登 入</a>
+        </div>
+      <% } %>
+    </div>
+  </div>
+</nav>
+
+
