@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <%- include ('./templates/head') %> 
+</head>
+<body>
+  <%- include ('./templates/nav') %>
+  <main class="admin">
+    <form action="/probability" method="POST" class="admin-group">
+      <label for="">機 率</label>
+      <input type="text" value="<%= prizes[0].User.probability %>" name="probability">
+      <button type="submit" class="admin__add-btn" style="margin-left: 10px;">更新</button>
+    </form>
+    <div>
+      <div class="admin__prize-lists">
+        <div class="err-message"><%= errorMessage %></div>
+        <form action="/add" method="POST" class="admin__prize-list">
+          <div class="admin__add-img">
+            <img src="/imgs/1.png" alt="">
+          </div>
+          <div class="admin__prize-info">
+            <div>
+              <label class="admin__prize-label" for="">獎 項：</label>
+              <input class="admin__prize-input" name="prize" type="text">
+            </div>
+            <div>
+              <label class="admin__prize-label" for="">名 稱：</label>
+              <input class="admin__prize-input" name="title" type="text">
+            </div>
+            <div>
+              <label class="admin__prize-label" for="">數 量：</label>
+              <input class="admin__prize-input" name="amount" type="text">
+            </div>
+            <div>
+              <label class="admin__prize-label" for="">圖片網址：</label>
+              <input class="admin__prize-input" name="url" type="text">
+            </div>
+          </div>
+          <button type="submit" class="admin__add-btn">新 增 <i class="fas fa-plus"></i></button>
+        </form>
+      </div>
+    </div>
+    <div class="admin__prize-lists">
+      <% prizes.forEach(prize => { %>
+      <form action="/update/<%= prize.id %>" method="POST" class="admin__prize-list">
+        <div class="admin__prize-title"><%= prize.prize %>
+          <div><%= prize.amount %>/<%= prize.User.probability %></div>
+        </div>
+        <div class="admin__prize-img">
+          <img src="<%= prize.url %>" alt="">
+        </div>
+        <div class="admin__prize-info">
+          <div>
+            <label class="admin__prize-label" for="">獎 項：</label>
+            <input class="admin__prize-input" name="prize" type="text" value="<%= prize.prize %>">
+          </div>
+          <div>
+            <label class="admin__prize-label" for="">名 稱：</label>
+            <input class="admin__prize-input" name="title" type="text" value="<%= prize.title %>">
+          </div>
+          <div>
+            <label class="admin__prize-label" for="">數 量：</label>
+            <input class="admin__prize-input" name="amount" type="text" value="<%= prize.amount %>">
+          </div>
+          <div>
+            <label class="admin__prize-label" for="">圖片網址：</label>
+            <input class="admin__prize-input" name="url" type="text" value="<%= prize.url %>">
+          </div>
+          <a href="/delete/<%= prize.id %>" class="admin__add-btn update">刪 除 <i class="fas fa-trash-alt"></i></a>
+          <button type="submit" class="admin__add-btn update">更 新 <i class="fas fa-check"></i></button>
+        </div>
+      </form>
+      <% }) %>
+    </div>
+  </main>
+</body>
+
+</html>
