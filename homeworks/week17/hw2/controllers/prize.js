@@ -112,15 +112,19 @@ const prizeController = {
         delete: null,
       },
     }).then((prizes) => {
-      const probability = prizes[0]['User.probability'];
+      const allPrize = prizes.length - 1; // 獎項
+      const sumOfPrize = getSumOfPrize(prizes);// 所有獎項合
+      
+      var probability = prizes[0]['User.probability'];
+      
+      if(sumOfPrize > probability) {
+        probability = sumOfPrize
+      }
+      
       const probabilityArr = GetProbabilityArr(probability);
       const yourNumber = Math.floor(Math.random() * probability);
 
-      const allPrize = prizes.length - 1; // 獎項
-      const sumOfPrize = getSumOfPrize(prizes);// 所有獎項合
-
       const allLuckyNumber = getAllLuckyNumber(sumOfPrize); // 中獎號
-
       const yourPrize = compareNumber(yourNumber); // 兌獎
       // 所有數字陣列
       function GetProbabilityArr(n) {
@@ -173,7 +177,7 @@ const prizeController = {
           obj.url = prizes[0].url;
           return obj;
         }
-        for (let i = 1; i <= allPrize; i += 1) {
+        for (let i = 1; i < allPrize; i += 1) {
           if (index < getEachePrize(i)) {
             obj.title = prizes[i].title;
             obj.url = prizes[i].url;
