@@ -1,0 +1,47 @@
+<% 
+  function getDate(date) {
+    const dateArr = date.toString().split(" ")
+    return dateArr[3]+"-"+dateArr[1]+"-"+dateArr[2]+" "+dateArr[4]
+  }
+%> 
+<head>
+  <%- include ('./templates/head') %> 
+</head>
+
+<body>
+  <%- include ('./templates/navbar') %> 
+
+  <%- include ('./templates/banner') %> 
+
+  <div class="container">
+    <div class="admin-posts">
+      <% articles.forEach(function(article) { %>
+        <a href="/article/<%= article.id %>" class="admin-post">
+          <div class="admin-post__title">
+            <span>[分類一]</span>
+            <%= article.title %>
+          </div>
+          <div class="admin-post__info">
+            <div class="admin-post__created-at">
+              <%= getDate(article.createdAt) %>
+            </div>
+            <% if(username) { %>
+              <a class="admin-post__btn" href="/update/<%= article.id %>">
+                編輯
+              </a>
+              <a class="admin-post__btn" href="/delete/<%= article.id %>">
+                刪除
+              </a>
+            <% } else { %>
+
+            <% } %>
+
+          </div>
+        </a>
+      <% }) %>
+    </div>
+  </div>
+
+  <%- include ('./templates/footer') %> 
+  <%- include ('./templates/script') %> 
+</body>
