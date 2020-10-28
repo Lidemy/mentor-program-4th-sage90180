@@ -1,0 +1,265 @@
+<% 
+  var today = new Date()
+  function getDate(date) {
+    return date.getFullYear()+"-"+(date.getMonth()+1)+"-"+date.getDate()
+  }
+%> 
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>吃吃燒烤</title>
+  <link rel="stylesheet" href="/css/normalize.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.1/css/bootstrap.min.css">
+  <script src="https://kit.fontawesome.com/4f39c4000d.js" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="/css/main.css">
+  <link rel="stylesheet" href="/css/slider_style.css">
+</head>
+
+<body>
+  <section class="logo" id="logo">
+    <a href="/" class="w-100 align-items-center"><img src="/imgs/logo.png" alt=""></a>
+    <a href="/" class="fas fa-home"></a>
+  </section>
+  <!-- management -->
+  <section class="management">
+    <div class="container text-center">
+      <div class="management__title mb-4">
+        <img src="/imgs/manange.png" alt="">
+      </div>
+    </div>
+  </section>
+  <div class="container">
+    <ul class="nav management-btns justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link active" data-toggle="tab" href="#menu">[ 菜單 ]</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#coupon">[ 優惠卷 ]</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#booking">[ 預約 ]</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="tab" href="#faq">[ 問與答 ]</a>
+      </li>
+    </ul>
+    <div class="err-message text-center red mb-3"><%= errorMessage %></div>
+    <div class="tab-content management-content">
+      <!-- menu -->
+      <div class="tab-pane fade show active" id="menu">
+        <div class="row my-4">
+          <div class="col-12 px-4">
+            <div class="row management-content__items mb-3">
+              <div class="col-12 mb-2 item-head px-md-5">
+                新增分類
+              </div>
+              <!-- 新增類別 -->
+              <form method="POST" action="/add-type" class="col-lg-4 col-md-6 px-md-5 mb-2">
+                <div class="item-icon">
+                  <img src="/imgs/t-icon-03.png" alt=""><br>
+                </div>
+                <input type="text" name="icon" placeholder="圖片網址...">
+                <div class="d-flex align-items-center">
+                  <input type="text" class="w-100" name="type" placeholder="新 增...">
+                  <button type="submit" class="btn fas fa-plus ml-2 p-0"></button>
+                </div>
+              </form>
+              <% for(let type of types){ %>
+              <div class="col-lg-4 col-md-6 px-md-5 mb-4">
+                <div class="item-icon">
+                  <img src="<%= type.icon %>" alt=""><br>
+                </div>
+                <!-- 修改分類 -->
+                <form action="/update-type/<%= type.id %>" method="POST">
+                  <div class="d-flex align-items-center">
+                    <input type="text" class="w-100" name="icon" value="<%= type.icon %>">
+                  </div>
+                  <div class="d-flex align-items-center">
+                    <input type="text" class="w-100" name="type" value="<%= type.type %>">
+                    <button class="btn p-0 fas fa-edit ml-2"></button>
+                    <a href="/delete-type/<%= type.id %>" class="far fa-trash-alt  ml-2"></a>
+                  </div>
+                </form>
+
+              </div>
+              <% } %>
+            </div>
+            <div class="row management-content__items">
+              <% for(let type of types){ %>
+              <div class="col-lg-4 col-md-6 management-content__item px-md-5">
+                <div class="item-head">類 別：[ <%= type.type %> ]</div>
+                <div>新增菜色：</div>
+                <!-- 新增菜色 -->
+                <form method="POST" action="/add-dish" class="d-flex align-items-center">
+                  <input type="hidden" value="<%= type.id %>" type="text" name="TypeId">
+                  <input class="dish mr-1" value="" name="name" type="text" placeholder="新 增...">
+                  $
+                  <input class="price mx-1" name="price" value="" type="text">
+                  <button type="submit" class="btn fas fa-plus p-0"></button>
+                </form>
+                <div>菜 色：</div>
+                <% for(let i = 0; i < dishes.length; i++) { %>
+                <!-- 顯示菜色 -->
+                <form method="POST" action="/update-dish/<%= dishes[i].id %>" class="d-flex align-items-center">
+                  <% if(dishes[i].TypeId == type.id) { %>
+                  <input class="dish mr-1" name="name" value="<%= dishes[i].name %>" type="text">
+                  $
+                  <input class="price ml-1" name="price" value="<%= dishes[i].price %>" type="text">
+                  <button type="submit" class="btn p-0 fas fa-edit ml-2"></button>
+                  <a href="/delete-dish/<%= dishes[i].id %>" class="far fa-trash-alt ml-2"></a>
+                  <% } %>
+                </form>
+                <% } %>
+                <div class="d-flex">
+                  <a href="/delete-type/<%= type.id %>" class="item-btn">移 除 菜 單</a>
+                </div>
+              </div>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- coupon -->
+      <div class="tab-pane fade" id="coupon">
+        <div class="row my-4">
+          <div class="col-md-3 col-12 mb-5">
+            <form method="POST" action="/add-coupon" class="management-content__form">
+              <div class="form-group">
+                <label>優惠卷名稱：</label>
+                <input type="text" class="form-control" name="name">
+              </div>
+              <div class="form-group">
+                <label>圖 片：</label>
+                <input type="text" class="form-control" name="img">
+              </div>
+              <div class="form-group">
+                <label>售 價：</label>
+                <input type="text" class="form-control" name="price">
+              </div>
+              <div class="form-group">
+                <label>到期日：</label>
+                <input type="date" class="form-control" name="expire" value="<%= getDate(today) %>">
+              </div>
+              <div class="form-group">
+                <label">描 述：</label>
+                <textarea class="form-control" name="content" rows="3"></textarea>
+              </div>
+              <input type="submit" value="新增優惠卷">
+            </form>
+          </div>
+          <div class="col-md-9 col-12 px-4">
+            <div class="row management-content__items">
+              <% for(let coupon of coupons){ %>
+              <form method="POST" action="/update-coupon/<%= coupon.id %>" class="col-lg-4 col-md-6 management-content__item">
+                <img class="w-100 management-content__coupon" src="<%= coupon.img %>" alt="">
+                <div>優惠卷名稱：<br><input type="text" name="name" value="<%= coupon.name %>"></div>
+                <div>圖 片：<br><input type="text" name="img" value="<%= coupon.img %>"></div>
+                <div>售 價：<br><input type="text" name="price" value="<%= coupon.price %>"></div>
+                <div>到期日：<br><input type="date" name="expire" value="<%= getDate(coupon.expire) %>"></div>
+                <div>描 述：<br>
+                  <textarea class="form-control" id="time" name="content" rows="3"><%= coupon.content %></textarea>
+                </div>
+                <div class="d-flex">
+                  <button type="submit" class="item-btn mr-1">修 改</button>
+                  <a href="/delete-coupon/<%= coupon.id %>" class="item-btn">刪 除</a>
+                </div>
+              </form>
+              <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- booking -->
+      <div class="tab-pane fade" id="booking">
+        <div class="management-content__bookings">
+          <div class="row mt-4">
+            <% for(let booking of bookings){ %>
+            <div class="col-xl-3 col-md-4 col-sm-6 col-12 ">
+              <div class="management-content__booking">
+                <div class="management-content__booking-info date">日期：<span><%= getDate(booking.date) %></span></div>
+                <div class="management-content__booking-info">時段：<span><%= booking.time %></span></div>
+                <div class="management-content__booking-info">姓名：<span><%= booking.name %></span></div>
+                <div class="management-content__booking-info">手機：<span><%= booking.phone %></span></div>
+                <div class="management-content__booking-info">人數：<span><%= booking.people %></span></div>
+                <div class="management-content__booking-info w-100">備註：<textarea class="w-100" rows="3"><%= booking.content %></textarea>
+                </div>
+                <a href="/delete-booking/<%= booking.id %>" class="management-content__booking-delete">刪 除</a>
+              </div>
+            </div>
+            <% } %> 
+          </div>
+        </div>
+      </div>
+      <!-- faq -->
+      <div class="tab-pane fade" id="faq">
+        <div class="row my-4">
+          <div class="col-md-3 col-12 mb-5">
+            <form method="POST" action="/add-faq" class=" management-content__form">
+              <div class="form-group">
+                <label for="name">排 序</label>
+                <select name="order" class="form-control">
+                  <% for(let i=1; i<faqs.length+2; i++){ %>
+                    <option <%= i==faqs.length+1? "selected":"" %> ><%= i %></option>
+                  <% } %>
+                </select>
+              </div>
+              <div class="form-group">
+                <label for="name">問 題</label>
+                <textarea class="form-control" name="question" rows="2"></textarea>
+              </div>
+              <div class="form-group">
+                <label for="people">回 答</label>
+                <textarea class="form-control" name="answer" rows="5"></textarea>
+              </div>
+              <input type="submit" value="新增問與答">
+            </form>
+          </div>
+          <div class="col-md-9 col-12 px-4">
+            <div class="row management-content__items">
+              <% for(let faq of faqs){ %>
+              <form action="/update-faq/<%= faq.id %>" method="POST" class="col-lg-4 col-md-6 management-content__item">
+                <div>排 序<br>
+                  <select name="order" class="form-control">
+                    <% for(let i=1; i<faqs.length+1; i++){ %>
+                      <option <%= i==faq.order? "selected":"" %> ><%= i %></option>
+                    <% } %>
+                  </select>
+                </div>
+                <div>問 題<br>
+                  <textarea class="form-control" name="question" rows="2"><%= faq.question %></textarea>
+                </div>
+                <div>回 答<br>
+                  <textarea class="form-control" name="answer" rows="5"><%= faq.answer %></textarea>
+                </div>
+                <div class="d-flex">
+                  <button type="submit" class="item-btn mr-1">修 改</button>
+                  <a href="/delete-faq/<%= faq.id %>" class="item-btn">刪 除</a>
+                </div>
+              </form>
+             <% } %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>
