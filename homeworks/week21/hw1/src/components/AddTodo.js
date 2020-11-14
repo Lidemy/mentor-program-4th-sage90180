@@ -49,11 +49,7 @@ function AddTodo({ getToday, handleAddTodo }) {
     setValue: setNewInput,
     handleChange: handleNewInput,
   } = useInput();
-  const {
-    value: date,
-    setValue: setDate,
-    handleChange: hadleDate,
-  } = useInput();
+  const { value: date, handleChange: hadleDate } = useInput();
 
   return (
     <AddTodoWrap>

@@ -12,6 +12,7 @@ const TodolistWrap = styled.div`
   box-shadow: 0px 0px 0px 10px rgba(0, 0, 0, 0.1);
   background: ${YellowLight};
   max-width: 700px;
+  min-width: 600px;
   margin: 50px auto;
 `;
 const ErrorMessage = styled.div`
@@ -30,7 +31,7 @@ function App() {
     handleDeleteTodo,
     handleToggleIsDone,
     getAmountOfLeft,
-    handleImportInputClick,
+    handleTodoInputClick,
     setTodos,
     render,
     renderStatus,
@@ -48,7 +49,7 @@ function App() {
           todo={todo}
           handleDeleteTodo={handleDeleteTodo}
           handleToggleIsDone={handleToggleIsDone}
-          handleImportInputClick={handleImportInputClick}
+          handleTodoInputClick={handleTodoInputClick}
           renderStatus={renderStatus}
         />
       ))}

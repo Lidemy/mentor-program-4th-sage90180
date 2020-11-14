@@ -10,19 +10,18 @@ export default function useTodos() {
     return year + "-" + month + "-" + date;
   };
 
-  // 資料寫進 localStorage
+  // 載入 todos
   const id = useRef(1);
   const [todos, setTodos] = useState(() => {
-    let todoData = window.localStorage.getItem("todos") || "";
-    todoData = JSON.parse(todoData);
-    if (todoData.length > 0) {
+    let todoData = JSON.parse(window.localStorage.getItem("todos"));
+    if (todoData && todoData[0] !== undefined) {
       id.current = todoData[0].id + 1;
-    } else {
-      todoData = [];
+      return todoData;
     }
-    return todoData;
+    return [];
   });
-  //  localStorage
+
+  // 資料寫進 localStorage
   const saveToLocalStorage = (todos) => {
     window.localStorage.setItem("todos", JSON.stringify(todos));
   };
@@ -34,6 +33,7 @@ export default function useTodos() {
   const handleAddTodo = (newTodo, date, setNewInput) => {
     if (!newTodo) {
       document.querySelector(".error").style.display = "block";
+      return;
     } else {
       document.querySelector(".error").style.display = "none";
     }
@@ -79,14 +79,14 @@ export default function useTodos() {
     return sum;
   };
 
-  // todo 更新
-  const handleImportInputClick = (e, itemEvent, setItemEvent, id) => {
+  // 現有 todo 更新
+  const handleTodoInputClick = (e, itemEvent, setItemEvent, id) => {
     setItemEvent(e.target.value);
     e.target.addEventListener("blur", (e) => {
       if (!e.target.value) {
-        return document.querySelector(".error").style.display = "block";
+        return (document.querySelector(".error").style.display = "block");
       }
-    })
+    });
     setTodos(
       todos.map((importTodo) => {
         if (importTodo.id !== id) return importTodo;
@@ -113,9 +113,9 @@ export default function useTodos() {
   const render = (e, status) => {
     changeActiveBtnClass(e);
     setRenderStatus(status);
-    // return status;
   };
 
+  // 刪除全部
   const handleDeleteAll = () => {
     setTodos([]);
   };
@@ -128,7 +128,7 @@ export default function useTodos() {
     handleDeleteTodo,
     handleToggleIsDone,
     getAmountOfLeft,
-    handleImportInputClick,
+    handleTodoInputClick,
     render,
     handleDeleteAll,
     renderStatus,

@@ -18,7 +18,9 @@ const ItemWrap = styled.div`
   ${(props) =>
     props.$renderStatus === "active" ? props.$isDone && "display: none" : ""}
   ${(props) =>
-    props.$renderStatus === "completed" ? !props.$isDone && "display: none" : ""}
+    props.$renderStatus === "completed"
+      ? !props.$isDone && "display: none"
+      : ""}
 `;
 const TodoCheckbox = styled.input`
   width: 20px;
@@ -87,7 +89,7 @@ function TodoItem({
   todo,
   handleDeleteTodo,
   handleToggleIsDone,
-  handleImportInputClick,
+  handleTodoInputClick,
   renderStatus,
 }) {
   const [itemEvent, setItemEvent] = useState(todo.content);
@@ -109,7 +111,7 @@ function TodoItem({
         $isDone={todo.isDone}
         value={itemEvent}
         onChange={(e) => {
-          handleImportInputClick(e, itemEvent, setItemEvent, todo.id);
+          handleTodoInputClick(e, itemEvent, setItemEvent, todo.id);
         }}
       />
       <StyleItemBtn
