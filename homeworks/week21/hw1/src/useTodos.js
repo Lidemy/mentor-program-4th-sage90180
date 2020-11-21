@@ -4,10 +4,7 @@ export default function useTodos() {
   // 時間設定
   const getToday = () => {
     var today = new Date();
-    const year = today.getFullYear();
-    const month = ("0" + (today.getMonth() + 1)).slice(-2);
-    const date = ("0" + today.getDate()).slice(-2);
-    return year + "-" + month + "-" + date;
+    return today.toLocaleDateString().replace(/\//g, "-");
   };
 
   // 載入 todos
@@ -30,13 +27,13 @@ export default function useTodos() {
   }, [todos]);
 
   // 新增
+  const [getErrorMessage, setGetErrorMessage] = useState(null);
   const handleAddTodo = (newTodo, date, setNewInput) => {
     if (!newTodo) {
-      document.querySelector(".error").style.display = "block";
-      return;
-    } else {
-      document.querySelector(".error").style.display = "none";
+      setGetErrorMessage(true);
+      return getErrorMessage;
     }
+    setGetErrorMessage(false);
     setTodos([
       {
         id: id.current,
@@ -48,6 +45,55 @@ export default function useTodos() {
     ]);
     setNewInput("");
     id.current++;
+  };
+
+  // 編輯
+
+  const handleTodoInputChange = (e, itemEvent, setItemEvent, id) => {
+    setItemEvent(e.target.value);
+    e.target.addEventListener("blur", (e) => {
+      if (!e.target.value) {
+        setGetErrorMessage(true);
+        return;
+      }
+    });
+    setTodos(
+      todos.map((importTodo) => {
+        if (importTodo.id !== id) return importTodo;
+        return {
+          ...importTodo,
+          content: itemEvent,
+        };
+      })
+    );
+  };
+
+  // 編輯日期
+  const handleTodoDateChange = (e, dateInput, setDateInput, id) => {
+    setDateInput(e.target.value);
+    setTodos(
+      todos.map((importTodo) => {
+        if (importTodo.id !== id) return importTodo;
+        return {
+          ...importTodo,
+          date: dateInput,
+        };
+      })
+    );
+  };
+
+  // inputFocus
+  const handleInputFocus = (e) => {
+    setGetErrorMessage(false);
+  };
+
+  // dateFocus
+  const handleDateFocus = (e) => {
+    e.target.type = "date";
+    e.target.addEventListener("blur", (e) => {
+      e.target.type = "text";
+    });
+    setGetErrorMessage(false);
   };
 
   // 刪除
@@ -79,39 +125,9 @@ export default function useTodos() {
     return sum;
   };
 
-  // 現有 todo 更新
-  const handleTodoInputClick = (e, itemEvent, setItemEvent, id) => {
-    setItemEvent(e.target.value);
-    e.target.addEventListener("blur", (e) => {
-      if (!e.target.value) {
-        return (document.querySelector(".error").style.display = "block");
-      }
-    });
-    setTodos(
-      todos.map((importTodo) => {
-        if (importTodo.id !== id) return importTodo;
-        return {
-          ...importTodo,
-          content: itemEvent,
-        };
-      })
-    );
-    document.querySelector(".error").style.display = "none";
-  };
-
-  // 按鈕樣式改變
-  const changeActiveBtnClass = (e) => {
-    const sibilings = e.target.parentElement.childNodes;
-    for (let sibiling of sibilings) {
-      sibiling.classList.remove("active");
-    }
-    e.target.classList.add("active");
-  };
-
   // 渲染畫面，全部 / 已完成 / 未完成
-  const [renderStatus, setRenderStatus] = useState("");
+  const [renderStatus, setRenderStatus] = useState("all");
   const render = (e, status) => {
-    changeActiveBtnClass(e);
     setRenderStatus(status);
   };
 
@@ -128,9 +144,13 @@ export default function useTodos() {
     handleDeleteTodo,
     handleToggleIsDone,
     getAmountOfLeft,
-    handleTodoInputClick,
+    handleTodoInputChange,
     render,
     handleDeleteAll,
     renderStatus,
+    getErrorMessage,
+    handleInputFocus,
+    handleDateFocus,
+    handleTodoDateChange,
   };
 }

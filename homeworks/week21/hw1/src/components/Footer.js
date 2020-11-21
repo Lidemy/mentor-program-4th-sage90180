@@ -49,21 +49,26 @@ const StyleFilterBtn = styled(FilterBtn)`
   }
 `;
 
-function Footer({ getAmountOfLeft, render, handleDeleteAll }) {
+function Footer({ getAmountOfLeft, render, handleDeleteAll, renderStatus }) {
   return (
     <Wrap>
       <StyleLeftTodo content="代辦事項：" count={getAmountOfLeft()} />
       <FilterBtnsWrap>
         <StyleFilterBtn
-          className="active"
+          className={renderStatus === "all" ? "active" : ""}
           content="顯示全部"
           onClick={(e) => render(e, "all")}
         />
         <StyleFilterBtn
+          className={renderStatus === "completed" ? "active" : ""}
           content="已完成"
           onClick={(e) => render(e, "completed")}
         />
-        <StyleFilterBtn content="未完成" onClick={(e) => render(e, "active")} />
+        <StyleFilterBtn
+          className={renderStatus === "uncompleted" ? "active" : ""}
+          content="未完成"
+          onClick={(e) => render(e, "uncompleted")}
+        />
       </FilterBtnsWrap>
       <StyleFilterBtn content="全部刪除" onClick={handleDeleteAll} />
     </Wrap>

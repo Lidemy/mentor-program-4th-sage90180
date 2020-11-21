@@ -20,7 +20,6 @@ const ErrorMessage = styled.div`
   font-weight: 900;
   font-size: 18px;
   color: #de3c30;
-  display: none;
 `;
 
 function App() {
@@ -31,26 +30,39 @@ function App() {
     handleDeleteTodo,
     handleToggleIsDone,
     getAmountOfLeft,
-    handleTodoInputClick,
+    handleTodoInputChange,
     setTodos,
     render,
     renderStatus,
     handleDeleteAll,
+    getErrorMessage,
+    handleInputFocus,
+    handleDateFocus,
+    handleTodoDateChange,
   } = useTodos();
 
   return (
     <TodolistWrap>
       <Header />
-      <ErrorMessage className="error">請輸入代辦事項！</ErrorMessage>
-      <AddTodo getToday={getToday()} handleAddTodo={handleAddTodo} />
+      {getErrorMessage && (
+        <ErrorMessage className="error">請輸入代辦事項！</ErrorMessage>
+      )}
+      <AddTodo
+        getToday={getToday()}
+        handleAddTodo={handleAddTodo}
+        handleInputFocus={handleInputFocus}
+      />
       {todos.map((todo) => (
         <TodoItem
           key={todo.id}
           todo={todo}
           handleDeleteTodo={handleDeleteTodo}
           handleToggleIsDone={handleToggleIsDone}
-          handleTodoInputClick={handleTodoInputClick}
+          handleTodoInputChange={handleTodoInputChange}
           renderStatus={renderStatus}
+          handleInputFocus={handleInputFocus}
+          handleDateFocus={handleDateFocus}
+          handleTodoDateChange={handleTodoDateChange}
         />
       ))}
       <Footer
@@ -59,6 +71,7 @@ function App() {
         setTodos={setTodos}
         render={render}
         handleDeleteAll={handleDeleteAll}
+        renderStatus={renderStatus}
       />
     </TodolistWrap>
   );

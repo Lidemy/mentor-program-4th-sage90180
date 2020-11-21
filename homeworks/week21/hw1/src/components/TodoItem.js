@@ -12,11 +12,14 @@ const ItemWrap = styled.div`
   & + & {
     border-top: dashed 1px #ddd;
   }
+
    {
     /* 判斷要顯示哪些 */
   }
   ${(props) =>
-    props.$renderStatus === "active" ? props.$isDone && "display: none" : ""}
+    props.$renderStatus === "uncompleted"
+      ? props.$isDone && "display: none"
+      : ""}
   ${(props) =>
     props.$renderStatus === "completed"
       ? !props.$isDone && "display: none"
@@ -26,18 +29,38 @@ const TodoCheckbox = styled.input`
   width: 20px;
   height: 20px;
 `;
-const TodoDate = styled.p`
+const TodoDate = styled.input`
+  border: solid 3px ${YellowLight};
+  background: ${YellowLight};
+  padding: 2px 5px;
+  width: 120px;
+  font-size: 16px;
   color: ${Gray};
   font-weight: 900;
-  font-size: 20px;
-  width: 120px;
-  text-align: justify;
+  font-size: 18px;
+  height: 31px;
+  ${(props) =>
+    props.$isDone &&
+    `
+  text-decoration: line-through;
+  opacity: .6;
+`}
+  &:focus {
+    outline: none;
+    background: white;
+    border: solid 3px white;
+    width: 180px;
+  }
+  &.active {
+    border: solid 3px #ffe38c;
+    background: white;
+  }
 `;
 const TodoInput = styled.input`
   border: solid 3px ${YellowLight};
   background: ${YellowLight};
   padding: 2px 5px;
-  width: 40%;
+  width: 60%;
   font-size: 16px;
   color: ${Gray};
   font-weight: 900;
@@ -46,7 +69,6 @@ const TodoInput = styled.input`
     props.$isDone &&
     `
     text-decoration: line-through;
-    text-decoration-style: double;
     opacity: .6;
   `}
   &:focus {
@@ -72,6 +94,7 @@ const StyleItemBtn = styled(ItemBtn)`
   font-weight: 900;
   font-size: 18px;
   cursor: pointer;
+  min-width: 65px;
   .icon {
     color: ${Gray};
     font-weight: 500;
@@ -89,10 +112,15 @@ function TodoItem({
   todo,
   handleDeleteTodo,
   handleToggleIsDone,
-  handleTodoInputClick,
+  handleTodoInputChange,
   renderStatus,
+  handleInputFocus,
+  handleDateFocus,
+  handleTodoDateChange,
 }) {
   const [itemEvent, setItemEvent] = useState(todo.content);
+  const [dateInput, setDateInput] = useState(todo.date);
+
   return (
     <ItemWrap
       $data-id={todo.id}
@@ -105,14 +133,25 @@ function TodoItem({
         onClick={() => handleToggleIsDone(todo.id)}
         readOnly
       />
-      <TodoDate>{todo.date}</TodoDate>
+      <TodoDate
+        onFocus={handleDateFocus}
+        $isDone={todo.isDone}
+        type="text"
+        value={todo.date}
+        onChange={(e) => {
+          handleTodoDateChange(e, dateInput, setDateInput, todo.id);
+        }}
+        disabled={todo.isDone ? "disabled" : ""}
+      />
       <TodoInput
         type="text"
         $isDone={todo.isDone}
         value={itemEvent}
+        onFocus={handleInputFocus}
         onChange={(e) => {
-          handleTodoInputClick(e, itemEvent, setItemEvent, todo.id);
+          handleTodoInputChange(e, itemEvent, setItemEvent, todo.id);
         }}
+        disabled={todo.isDone ? "disabled" : ""}
       />
       <StyleItemBtn
         icon={faTrashAlt}

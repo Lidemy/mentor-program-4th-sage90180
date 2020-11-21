@@ -43,7 +43,7 @@ const AddBtn = styled.button`
     }
   }
 `;
-function AddTodo({ getToday, handleAddTodo }) {
+function AddTodo({ getToday, handleAddTodo, handleInputFocus }) {
   const {
     value: newTodo,
     setValue: setNewInput,
@@ -64,6 +64,7 @@ function AddTodo({ getToday, handleAddTodo }) {
         value={newTodo}
         onChange={handleNewInput}
         placeholder="請輸入代辦事項"
+        onFocus={handleInputFocus}
       />
       <AddBtn
         onClick={() => {

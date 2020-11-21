@@ -1,5 +1,5 @@
-import {createGlobalStyle} from "styled-components";
-export const ResetStyle = createGlobalStyle `
+import { createGlobalStyle } from "styled-components";
+export const ResetStyle = createGlobalStyle`
 html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
   margin: 0;
   padding: 0;
@@ -72,7 +72,7 @@ button {
 }
 `;
 
-export const GlobalStyle = createGlobalStyle `
+export const GlobalStyle = createGlobalStyle`
 html, body {
   padding: 40px 0px;
   background: #88BFC1;
@@ -216,8 +216,7 @@ html, body {
   .form_box .warning {
     color: #E35060;
     font-size: 14px;
-    margin: 5px 0px;
-    opacity: 0; }
+    margin: 5px 0px;}
 
 input:-webkit-autofill, textarea:-webkit-autofill, select:-webkit-autofill {
   -webkit-box-shadow: 0 0 0 1000px #fff9f2 inset;

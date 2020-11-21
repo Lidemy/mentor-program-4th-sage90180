@@ -22,6 +22,7 @@ const FormInput = ({
 );
 
 function Form() {
+  const [getErrorMessage, setGetErrorMessage] = useState(null);
   const [data, setData] = useState(() => {
     let formData = window.localStorage.getItem("data") || "";
     if (formData) {
@@ -33,7 +34,7 @@ function Form() {
         email: "",
         phone: "",
         type: "",
-        howKnow: "",
+        knowAboutUs: "",
         others: "",
       });
     }
@@ -55,12 +56,9 @@ function Form() {
     e.preventDefault();
     let getAlert = true;
     for (var question in data) {
-      const item = document.querySelector(`[name="${question}"]`);
-      if (data[question] === "") {
-        item.parentElement.querySelector(".warning").style.opacity = "1";
+      if (question !== "others" && data[question] === "") {
         getAlert = false;
-      } else {
-        item.parentElement.querySelector(".warning").style.opacity = "0";
+        setGetErrorMessage(true);
       }
     }
     if (getAlert) {
@@ -69,7 +67,7 @@ function Form() {
 信       箱：${data.email}
 手       機：${data.phone}
 報名項目：${data.type === 1 ? "躺在床上用想像力實作" : "趴在地上滑手機找現成的"}
-資訊來源：${data.howKnow}
+資訊來源：${data.knowAboutUs}
 其       它：${data.others}
 ------------------------------------
         `);
@@ -85,14 +83,14 @@ function Form() {
       <FormTitle>新拖延運動報名表單</FormTitle>
       <FormIntro>活動日期：2020/12/10 ~ 2020/12/11</FormIntro>
       <FormIntro>活動地點：台北市大安區新生南路二段1號</FormIntro>
-      <FormMain className="form_main">
+      <FormMain onSubmit={handleSubmit} className="form_main">
         <FormInput
           className="form_title necessary"
           value={data.nickname}
           label="暱稱"
           type="text"
           name="nickname"
-          content="請輸入暱稱"
+          content={!data.nickname && getErrorMessage && "請輸入暱稱"}
           onChange={handleInputChange}
         />
         <FormInput
@@ -101,7 +99,7 @@ function Form() {
           label="電子信箱"
           type="text"
           name="email"
-          content="請輸入電子郵件"
+          content={!data.email && getErrorMessage && "請輸入電子郵件"}
           onChange={handleInputChange}
         />
         <FormInput
@@ -110,7 +108,7 @@ function Form() {
           label="手機"
           type="text"
           name="phone"
-          content="請輸入手機號碼"
+          content={!data.phone && getErrorMessage && "請輸入手機號碼"}
           onChange={handleInputChange}
         />
         <label className="form_title necessary">
@@ -143,15 +141,17 @@ function Form() {
           <label className="apply" htmlFor="opt_2">
             趴在地上滑手機找現成的
           </label>
-          <div className="warning opt">請選擇</div>
+          {!data.type && getErrorMessage && (
+            <div className="warning opt">請選擇</div>
+          )}
         </label>
         <FormInput
           className="form_title necessary"
-          value={data.howKnow}
+          value={data.knowAboutUs}
           label="怎麼知道這個活動的？"
           type="text"
-          name="howKnow"
-          content="請輸入資訊"
+          name="knowAboutUs"
+          content={!data.knowAboutUs && getErrorMessage && "請輸入資訊"}
           onChange={handleInputChange}
         />
         <label className="form_title necessary">
@@ -164,11 +164,8 @@ function Form() {
             name="others"
             onChange={handleInputChange}
           />
-          <div className="warning">請填好填滿</div>
         </label>
-        <button type="submit" onClick={handleSubmit}>
-          送 出
-        </button>
+        <button>送 出</button>
         <p className="ps">請勿透過表單送出您的密碼。</p>
       </FormMain>
     </FormWrap>
