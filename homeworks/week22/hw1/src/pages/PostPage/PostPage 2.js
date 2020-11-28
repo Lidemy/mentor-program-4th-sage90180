@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import PropTypes from "prop-types";
 import { getPost } from "../../WebAPI";
+import App from "../../components/MessageBoard/App";
 
-import { Link } from "react-router-dom";
-import { useHistory, useParams } from "react-router-dom";
+import { HashRouter as Router, useHistory, useParams } from "react-router-dom";
 
 const PostWrap = styled.div`
   max-width: 1200px;
@@ -35,7 +36,7 @@ const PostContent = styled.div`
   color: #333;
 `;
 
-const Button = styled(Link)`
+const Button = styled.div`
   border: solid 2px #888;
   border-radius: 20px;
   padding: 8px 10px;
@@ -50,30 +51,22 @@ const Button = styled(Link)`
   }
 `;
 
-const Post = ({ post, history }) => {
-  if (!post) return null;
+export default function PostPage() {
+  let history = useHistory();
+  const { id } = useParams();
+  const [post, setPost] = useState("");
+  useEffect(() => {
+    getPost(id).then((post) => setPost(post[0]));
+  }, []);
+  const handleGoBack = () => {
+    history.push("/");
+  };
   return (
     <PostWrap>
       <PostTitile>{post.title}</PostTitile>
       <CreatedAt>{new Date(post.createdAt).toLocaleString()}</CreatedAt>
       <PostContent>{post.body}</PostContent>
-      <Button onClick={() => history.goBack()}>上一頁</Button>
+      <Button onClick={handleGoBack}>上一頁</Button>
     </PostWrap>
-  );
-};
-
-export default function PostPage() {
-  let history = useHistory();
-  const { id } = useParams();
-  const [post, setPost] = useState("");
-
-  useEffect(() => {
-    getPost(id).then((post) => setPost(post[0]));
-  }, [id]);
-
-  return (
-    <>
-      <Post post={post} history={history} />
-    </>
   );
 }

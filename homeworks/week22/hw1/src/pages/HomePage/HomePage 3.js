@@ -114,9 +114,7 @@ export default function HomePage() {
       ))}
       <PageContainer>
         {pageArr.map((page) => (
-          <PageLink key={page} onClick={() => setPage(page)}>
-            {page}
-          </PageLink>
+          <PageLink onClick={() => setPage(page)}>{page}</PageLink>
         ))}
       </PageContainer>
     </Root>

@@ -50,18 +50,6 @@ const Button = styled(Link)`
   }
 `;
 
-const Post = ({ post, history }) => {
-  if (!post) return null;
-  return (
-    <PostWrap>
-      <PostTitile>{post.title}</PostTitile>
-      <CreatedAt>{new Date(post.createdAt).toLocaleString()}</CreatedAt>
-      <PostContent>{post.body}</PostContent>
-      <Button onClick={() => history.goBack()}>上一頁</Button>
-    </PostWrap>
-  );
-};
-
 export default function PostPage() {
   let history = useHistory();
   const { id } = useParams();
@@ -70,10 +58,12 @@ export default function PostPage() {
   useEffect(() => {
     getPost(id).then((post) => setPost(post[0]));
   }, [id]);
-
   return (
-    <>
-      <Post post={post} history={history} />
-    </>
+    <PostWrap>
+      <PostTitile>{post.title}</PostTitile>
+      <CreatedAt>{new Date(post.createdAt).toLocaleString()}</CreatedAt>
+      <PostContent>{post.body}</PostContent>
+      <Button onClick={() => history.goBack()}>上一頁</Button>
+    </PostWrap>
   );
 }

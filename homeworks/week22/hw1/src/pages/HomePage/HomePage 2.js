@@ -99,6 +99,15 @@ export default function HomePage() {
         setApiErrorMessage(err);
       });
     getTotalPages().then((number) => setTotalPages(number));
+  }, []);
+
+  useEffect(() => {
+    getPosts(page)
+      .then((posts) => setPosts(posts))
+      .catch((err) => {
+        console.log(err);
+        setApiErrorMessage(err);
+      });
   }, [page]);
 
   return (
@@ -114,9 +123,7 @@ export default function HomePage() {
       ))}
       <PageContainer>
         {pageArr.map((page) => (
-          <PageLink key={page} onClick={() => setPage(page)}>
-            {page}
-          </PageLink>
+          <PageLink onClick={() => setPage(page)}>{page}</PageLink>
         ))}
       </PageContainer>
     </Root>
