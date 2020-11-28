@@ -12,7 +12,7 @@
 
 * useReducer  
   與 useEffect 類似，但可以做出更複雜的行為，將定義好的 initialState 和 reducer 帶入，在根據不同的 dispatch 更新 state。
-* useCallback  
+* useCallback  gi
   用法和 useEffect 有點像，在第二個參數傳入 dependencies，當那些 dependencies 沒有變時，那這個第一個參數裡的 function 不會改變。
 * useMemo  
   讓 React 記住 function 的回傳值，useMemo 只會在 dependencies 改變時才重新計算記憶位置，這樣就不會在每次重新渲染時都執行一次元件的 function。
