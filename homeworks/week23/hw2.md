@@ -38,5 +38,5 @@ const store = createStore(reducer)
 
 ## 該怎麼把 React 跟 Redux 串起來？
 可以透過官方提供的 React-Redux 套件來整合 React 和 Redux。  
-而 React-Redux 有兩種版本 Hooks 及 Connect，Hooks 方法是利用 useSelector 從 Store 中將 Component 需要的 State 取出，再利用 useDispatch 操作 Reducer。  
+而 React-Redux 有兩種版本 Hooks 及 Connect，Hooks 方法是利用 useSelector 從 Store 中將 connext( ) 需要的 State 取出，再利用 useDispatch 操作 Reducer。  
 Connect 則是利用 connext( ) 函式，而函式中會有兩個參數，第一個參數 mapStateToProps 透過他可以獲取 store 資料，另一個 mapDispatchToProps 可以獲取 dispatch 將 action 傳給 reducer ，
